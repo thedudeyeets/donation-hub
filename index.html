@@ -23,6 +23,7 @@
       --purple: #8A2BE2;
       --cyan: #22CCEE;
       --lime: #32CD32;
+      --orange: #FF5722;
       --border-thick: 4px solid #000000;
       --shadow-hard: 8px 8px 0 #000000;
       --shadow-pressed: 0 0 0 #000000;
@@ -43,7 +44,7 @@
 
     .container {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1300px;
       margin: 0 auto;
     }
 
@@ -52,7 +53,7 @@
       margin-bottom: 3.5rem;
       border: var(--border-thick);
       background: var(--yellow);
-      padding: 2.5rem 2rem;
+      padding: 2.75rem 2.25rem;
       box-shadow: var(--shadow-hard);
       position: relative;
     }
@@ -61,7 +62,7 @@
       display: inline-block;
       background: var(--black);
       color: #ffffff;
-      padding: 0.35rem 0.8rem;
+      padding: 0.4rem 0.9rem;
       font-size: 0.85rem;
       font-weight: 900;
       text-transform: uppercase;
@@ -70,24 +71,42 @@
     }
 
     h1 {
-      font-size: clamp(3rem, 10vw, 7.5rem);
+      font-size: clamp(3rem, 9.5vw, 7.5rem);
       font-weight: 900;
       text-transform: uppercase;
       line-height: 0.88;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
       word-break: break-word;
       letter-spacing: -0.04em;
     }
 
     .hero-desc {
-      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      font-size: clamp(1.1rem, 2.2vw, 1.55rem);
       font-weight: 700;
-      max-width: 780px;
+      max-width: 900px;
       line-height: 1.35;
       border-top: var(--border-thick);
       padding-top: 1.25rem;
-      background: rgba(255, 255, 255, 0.4);
-      padding: 1rem;
+      background: rgba(255, 255, 255, 0.45);
+      padding: 1.25rem;
+    }
+
+    /* STATS / IMPACT STRIP */
+    .impact-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .stat-pill {
+      background: #ffffff;
+      border: 3px solid var(--black);
+      padding: 0.4rem 0.85rem;
+      font-size: 0.95rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      box-shadow: 4px 4px 0 var(--black);
     }
 
     /* FILTER BAR */
@@ -95,36 +114,53 @@
       margin-bottom: 3rem;
     }
 
+    .filter-header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 1rem;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
     .filter-title {
       font-size: 1rem;
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-bottom: 0.75rem;
       display: inline-block;
       background: var(--black);
       color: #fff;
-      padding: 0.2rem 0.6rem;
+      padding: 0.3rem 0.75rem;
+    }
+
+    .count-indicator {
+      font-weight: 900;
+      font-size: 1.05rem;
+      background: #ffffff;
+      border: 3px solid var(--black);
+      padding: 0.25rem 0.65rem;
+      box-shadow: 3px 3px 0 var(--black);
     }
 
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 0.85rem;
     }
 
     .filter-btn {
       font-family: inherit;
-      font-size: 1.15rem;
+      font-size: 1.05rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 0.85rem 1.75rem;
+      padding: 0.8rem 1.4rem;
       border: var(--border-thick);
       background: #ffffff;
       color: var(--black);
       cursor: pointer;
       box-shadow: var(--shadow-hard);
-      transition: none; /* Instant snappy interaction */
+      transition: none; /* snappy zero-easing */
       user-select: none;
     }
 
@@ -150,9 +186,9 @@
     /* THE GRID */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-      gap: 2.5rem;
-      margin-bottom: 4rem;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 2.25rem;
+      margin-bottom: 4.5rem;
     }
 
     /* DONATION CARD */
@@ -173,16 +209,22 @@
       box-shadow: 5px 5px 0 var(--black);
     }
 
-    /* Asymmetric category tags */
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.25rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
     .card-category {
       display: inline-block;
-      align-self: flex-start;
       border: 3px solid var(--black);
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 0.3rem 0.65rem;
-      margin-bottom: 1.5rem;
+      padding: 0.25rem 0.6rem;
       letter-spacing: 0.05em;
     }
 
@@ -198,8 +240,26 @@
       background: var(--lime);
     }
 
+    .category-community {
+      background: var(--cyan);
+    }
+
+    .category-youth {
+      background: #FFA07A;
+    }
+
+    .location-tag {
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      background: #000;
+      color: #fff;
+      padding: 0.25rem 0.6rem;
+      letter-spacing: 0.05em;
+    }
+
     .card-title {
-      font-size: 1.85rem;
+      font-size: 1.75rem;
       font-weight: 900;
       line-height: 1.1;
       margin-bottom: 1rem;
@@ -207,11 +267,11 @@
     }
 
     .card-desc {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 700;
       line-height: 1.45;
-      margin-bottom: 2rem;
-      color: #111;
+      margin-bottom: 1.85rem;
+      color: #1a1a1a;
       flex-grow: 1;
     }
 
@@ -222,10 +282,10 @@
       text-align: center;
       text-decoration: none;
       font-family: inherit;
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 1.1rem 1rem;
+      padding: 1.05rem 1rem;
       border: var(--border-thick);
       box-shadow: var(--shadow-hard);
       cursor: pointer;
@@ -257,6 +317,10 @@
       color: var(--black);
     }
     .card:nth-child(4n) .donate-btn {
+      background: var(--yellow);
+      color: var(--black);
+    }
+    .card:nth-child(5n) .donate-btn {
       background: var(--lime);
       color: var(--black);
     }
@@ -277,9 +341,9 @@
       text-decoration: none;
       background: var(--yellow);
       border: 3px solid var(--black);
-      padding: 0.15rem 0.5rem;
+      padding: 0.2rem 0.55rem;
       display: inline-block;
-      margin-left: 0.25rem;
+      margin-left: 0.3rem;
       box-shadow: 3px 3px 0 var(--black);
       transition: none;
     }
@@ -297,19 +361,19 @@
 
     /* UTILITY: Hidden state for filtered items */
     .card.hidden {
-      display: none;
+      display: none !important;
     }
 
     /* RESPONSIVE TWEAKS */
-    @media (max-width: 600px) {
+    @media (max-width: 650px) {
       body {
         padding: 1.25rem 1rem 3rem;
       }
       header {
-        padding: 1.5rem 1.25rem;
+        padding: 1.6rem 1.25rem;
       }
       .filter-bar {
-        gap: 0.75rem;
+        gap: 0.65rem;
       }
       .filter-btn {
         width: 100%;
@@ -325,19 +389,29 @@
   <div class="container">
     <!-- HERO SECTION -->
     <header>
-      <span class="badge-top">Direct Impact &bull; Verified Causes</span>
+      <span class="badge-top">Direct Impact &bull; 100% Verified Non-Profits</span>
       <h1>HELP FOR US</h1>
       <p class="hero-desc">
-        A curated, zero-friction hub for urgent mutual aid, emergency relief, and direct political and ecological action. Give directly where it counts most.
+        A curated, zero-friction hub for urgent mutual aid, emergency relief, and direct political, ecological, and local youth empowerment. All causes are individually verified. Give directly where it counts most.
       </p>
+      <div class="impact-strip">
+        <span class="stat-pill">&#x2713; Global Relief</span>
+        <span class="stat-pill">&#x2713; Central PA &amp; Hershey Roots</span>
+        <span class="stat-pill">&#x2713; Boston Youth Pathways</span>
+        <span class="stat-pill">&#x2713; Direct Action</span>
+      </div>
     </header>
 
     <!-- FILTER BAR -->
     <div class="filter-wrapper">
-      <div class="filter-title">Filter by Category</div>
+      <div class="filter-header-flex">
+        <div class="filter-title">Filter by Category</div>
+        <div class="count-indicator" id="cause-count">Showing All Causes</div>
+      </div>
       <nav class="filter-bar" aria-label="Donation categories">
         <button class="filter-btn active" data-filter="all">ALL</button>
         <button class="filter-btn" data-filter="humanitarian">HUMANITARIAN</button>
+        <button class="filter-btn" data-filter="youth">YOUTH &amp; LOCAL</button>
         <button class="filter-btn" data-filter="political">POLITICAL</button>
         <button class="filter-btn" data-filter="ecological">ECOLOGICAL</button>
       </nav>
@@ -345,13 +419,18 @@
 
     <!-- THE GRID -->
     <main class="grid" id="donation-grid">
+
+      <!-- ================= HUMANITARIAN ================= -->
       <!-- The Gaza Fund -->
       <article class="card" data-category="humanitarian">
         <div>
-          <span class="card-category category-humanitarian">Humanitarian</span>
+          <div class="card-top">
+            <span class="card-category category-humanitarian">Humanitarian</span>
+            <span class="location-tag">Gaza Relief</span>
+          </div>
           <h2 class="card-title">The Gaza Fund</h2>
           <p class="card-desc">
-            Direct humanitarian relief and emergency financial aid provided straight to displaced families and individuals enduring crisis in Gaza.
+            Direct emergency relief and mutual aid provided straight to displaced families, urgent medical evacuations, and individuals enduring devastating conditions in Gaza.
           </p>
         </div>
         <a href="https://thegazafund.com/" target="_blank" rel="noopener noreferrer" class="donate-btn">
@@ -359,13 +438,33 @@
         </a>
       </article>
 
-      <!-- Doctors Without Borders -->
+      <!-- Palestine Children's Relief Fund (PCRF) -->
       <article class="card" data-category="humanitarian">
         <div>
-          <span class="card-category category-humanitarian">Humanitarian</span>
+          <div class="card-top">
+            <span class="card-category category-humanitarian">Humanitarian</span>
+            <span class="location-tag">Middle East</span>
+          </div>
+          <h2 class="card-title">Palestine Children's Relief Fund</h2>
+          <p class="card-desc">
+            Provides free medical care to injured and ill children who lack access to local healthcare infrastructure, deploying surgical teams and critical pediatric aid.
+          </p>
+        </div>
+        <a href="https://www.pcrf.net/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Doctors Without Borders (MSF) -->
+      <article class="card" data-category="humanitarian">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-humanitarian">Humanitarian</span>
+            <span class="location-tag">Global</span>
+          </div>
           <h2 class="card-title">Doctors Without Borders</h2>
           <p class="card-desc">
-            Independent, impartial medical humanitarian assistance providing urgent emergency healthcare in over 70 conflict zones and disaster areas worldwide.
+            Independent, impartial medical humanitarian assistance delivering urgent emergency healthcare and frontline surgical units in over 70 conflict zones and disaster zones.
           </p>
         </div>
         <a href="https://www.doctorswithoutborders.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
@@ -373,13 +472,33 @@
         </a>
       </article>
 
+      <!-- World Central Kitchen -->
+      <article class="card" data-category="humanitarian">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-humanitarian">Humanitarian</span>
+            <span class="location-tag">Crisis Feeding</span>
+          </div>
+          <h2 class="card-title">World Central Kitchen</h2>
+          <p class="card-desc">
+            Rapid direct action deploying first-responder field kitchens and hot, nutritious meals to communities impacted by humanitarian, climate, and community crises.
+          </p>
+        </div>
+        <a href="https://wck.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
       <!-- UNITED24 -->
       <article class="card" data-category="humanitarian">
         <div>
-          <span class="card-category category-humanitarian">Humanitarian</span>
+          <div class="card-top">
+            <span class="card-category category-humanitarian">Humanitarian</span>
+            <span class="location-tag">Ukraine</span>
+          </div>
           <h2 class="card-title">UNITED24 (Ukraine)</h2>
           <p class="card-desc">
-            The official global fundraising platform for Ukraine, directing crucial resources toward urgent medical aid, humanitarian relief, and reconstruction.
+            The official global fundraising platform for Ukraine, directing crucial resources toward urgent medical aid, frontline humanitarian assistance, and civic rebuilding.
           </p>
         </div>
         <a href="https://u24.gov.ua/" target="_blank" rel="noopener noreferrer" class="donate-btn">
@@ -387,13 +506,154 @@
         </a>
       </article>
 
+      <!-- ================= YOUTH & LOCAL (HERSHEY / HARRISBURG / BOSTON) ================= -->
+      <!-- Cocoa Packs (Hershey, PA) -->
+      <article class="card" data-category="youth">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-youth">Youth &amp; Local</span>
+            <span class="location-tag">Hershey, PA</span>
+          </div>
+          <h2 class="card-title">Cocoa Packs (Hershey)</h2>
+          <p class="card-desc">
+            Hershey-based 501(c)(3) providing targeted weekend food security, essential clothing, and wraparound educational support to thousands of children across Derry Township and Central PA.
+          </p>
+        </div>
+        <a href="https://cocoapacks.org/support/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Gemma's Angels (Hershey / Central PA) -->
+      <article class="card" data-category="youth">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-youth">Youth &amp; Local</span>
+            <span class="location-tag">Hershey / Central PA</span>
+          </div>
+          <h2 class="card-title">Gemma's Angels</h2>
+          <p class="card-desc">
+            Hershey grassroots charity rescuing and distributing fresh, wholesome produce and nutrition directly to homeless shelters, food pantries, and impoverished children across Lebanon and Dauphin counties.
+          </p>
+        </div>
+        <a href="https://www.gemmasangels.org/support-our-cause" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- The Joshua Group (Harrisburg, PA) -->
+      <article class="card" data-category="youth">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-youth">Youth &amp; Local</span>
+            <span class="location-tag">Harrisburg, PA</span>
+          </div>
+          <h2 class="card-title">The Joshua Group</h2>
+          <p class="card-desc">
+            Harrisburg neighborhood pillar offering comprehensive after-school academic programs, positive mentoring, scholarships, and vocational development for at-risk urban youth in Allison Hill.
+          </p>
+        </div>
+        <a href="https://www.joshuagroup.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Boys & Girls Club of Harrisburg (Harrisburg, PA) -->
+      <article class="card" data-category="youth">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-youth">Youth &amp; Local</span>
+            <span class="location-tag">Harrisburg, PA</span>
+          </div>
+          <h2 class="card-title">Boys &amp; Girls Club of Harrisburg</h2>
+          <p class="card-desc">
+            Empowers youth in the Greater Harrisburg area through safe spaces, academic success coaching, leadership labs, and healthy lifestyle programs for children ages 6 to 18.
+          </p>
+        </div>
+        <a href="https://www.bgchbg.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Teen Empowerment (Boston, MA) -->
+      <article class="card" data-category="youth">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-youth">Youth &amp; Local</span>
+            <span class="location-tag">Boston, MA</span>
+          </div>
+          <h2 class="card-title">Teen Empowerment (Boston)</h2>
+          <p class="card-desc">
+            Employs youth organizers in Roxbury and Dorchester to lead community peace, systemic reform, violence prevention, and social change projects across Boston neighborhoods.
+          </p>
+        </div>
+        <a href="https://teenempowerment.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- YouthBuild Boston -->
+      <article class="card" data-category="youth">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-youth">Youth &amp; Local</span>
+            <span class="location-tag">Boston, MA</span>
+          </div>
+          <h2 class="card-title">YouthBuild Boston</h2>
+          <p class="card-desc">
+            Provides underserved Boston youth with hands-on vocational training in construction, sustainable building, and design trades alongside academic credentials and career placements.
+          </p>
+        </div>
+        <a href="https://www.youthbuildboston.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- 826 Boston -->
+      <article class="card" data-category="youth">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-youth">Youth &amp; Local</span>
+            <span class="location-tag">Boston, MA</span>
+          </div>
+          <h2 class="card-title">826 Boston</h2>
+          <p class="card-desc">
+            Nonprofit youth writing and tutoring center dedicated to empowering traditionally underserved students ages 6–18 in Boston through creative writing, literacy, and book publication.
+          </p>
+        </div>
+        <a href="https://826boston.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Youth Enrichment Services (YES Boston) -->
+      <article class="card" data-category="youth">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-youth">Youth &amp; Local</span>
+            <span class="location-tag">Boston, MA</span>
+          </div>
+          <h2 class="card-title">Youth Enrichment Services (YES)</h2>
+          <p class="card-desc">
+            Provides Boston urban youth with outdoor recreation, sports equity, leadership coaching, and college preparation through outdoor exploration programs.
+          </p>
+        </div>
+        <a href="https://yeskids.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- ================= POLITICAL ================= -->
       <!-- Democratic National Committee / ActBlue -->
       <article class="card" data-category="political">
         <div>
-          <span class="card-category category-political">Political</span>
+          <div class="card-top">
+            <span class="card-category category-political">Political</span>
+            <span class="location-tag">National</span>
+          </div>
           <h2 class="card-title">Democratic National Committee / ActBlue</h2>
           <p class="card-desc">
-            Grassroots mobilization and direct political action funding to support progressive campaigns, voter protection, and legislative advocacy nationwide.
+            Grassroots mobilization and direct political action funding to support progressive candidates, protect ballot access, and drive federal and state legislative advocacy.
           </p>
         </div>
         <a href="https://secure.actblue.com/donate/dnc-web-donate" target="_blank" rel="noopener noreferrer" class="donate-btn">
@@ -401,16 +661,37 @@
         </a>
       </article>
 
-      <!-- Earth & Ecology Action -->
+      <!-- ================= ECOLOGICAL ================= -->
+      <!-- Rainforest Trust -->
       <article class="card" data-category="ecological">
         <div>
-          <span class="card-category category-ecological">Ecological</span>
-          <h2 class="card-title">Earth &amp; Ecology Action (Placeholder)</h2>
+          <div class="card-top">
+            <span class="card-category category-ecological">Ecological</span>
+            <span class="location-tag">Conservation</span>
+          </div>
+          <h2 class="card-title">Rainforest Trust</h2>
           <p class="card-desc">
-            Frontline environmental defense and community climate resistance initiatives supporting sustainable ecosystems and direct ecological action.
+            Purchases and protects threatened tropical lands and endangered species habitats acre by acre in close partnership with local and indigenous communities worldwide.
           </p>
         </div>
-        <a href="#" target="_blank" rel="noopener noreferrer" class="donate-btn">
+        <a href="https://www.rainforesttrust.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Indigenous Environmental Network (IEN) -->
+      <article class="card" data-category="ecological">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-ecological">Ecological</span>
+            <span class="location-tag">Climate Justice</span>
+          </div>
+          <h2 class="card-title">Indigenous Environmental Network</h2>
+          <p class="card-desc">
+            An indigenous grassroots alliance combating environmental injustice, resource contamination, and climate destruction through frontline resistance and tribal sovereignty.
+          </p>
+        </div>
+        <a href="https://www.ienearth.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
           DONATE DIRECTLY &rarr;
         </a>
       </article>
@@ -427,26 +708,39 @@
     document.addEventListener('DOMContentLoaded', () => {
       const filterButtons = document.querySelectorAll('.filter-btn');
       const cards = document.querySelectorAll('.card');
+      const countIndicator = document.getElementById('cause-count');
+
+      function updateGrid(selectedCategory) {
+        let visibleCount = 0;
+        cards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+            card.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (selectedCategory === 'all') {
+          countIndicator.textContent = `Showing All Causes (${visibleCount})`;
+        } else {
+          countIndicator.textContent = `Showing ${visibleCount} ${selectedCategory.toUpperCase()} Cause${visibleCount === 1 ? '' : 's'}`;
+        }
+      }
 
       filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-          // Manage button active states
           filterButtons.forEach(btn => btn.classList.remove('active'));
           button.classList.add('active');
 
           const selectedCategory = button.getAttribute('data-filter');
-
-          // Filter card grid
-          cards.forEach(card => {
-            const cardCategory = card.getAttribute('data-category');
-            if (selectedCategory === 'all' || cardCategory === selectedCategory) {
-              card.classList.remove('hidden');
-            } else {
-              card.classList.add('hidden');
-            }
-          });
+          updateGrid(selectedCategory);
         });
       });
+
+      // Initial count
+      updateGrid('all');
     });
   </script>
 </body>

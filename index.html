@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>helpfor.us — Urgent Mutual Aid & Direct Action</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    /* RESET & CORE VARIABLES */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f4f4f0;
+      --black: #000000;
+      --pink: #FF90E8;
+      --yellow: #FFC900;
+      --purple: #8A2BE2;
+      --cyan: #22CCEE;
+      --lime: #32CD32;
+      --border-thick: 4px solid #000000;
+      --shadow-hard: 8px 8px 0 #000000;
+      --shadow-pressed: 0 0 0 #000000;
+    }
+
+    body {
+      background-color: var(--bg);
+      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--black);
+      line-height: 1.3;
+      padding: 2rem 1.5rem 4rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      letter-spacing: -0.02em;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* HEADER / HERO */
+    header {
+      margin-bottom: 3.5rem;
+      border: var(--border-thick);
+      background: var(--yellow);
+      padding: 2.5rem 2rem;
+      box-shadow: var(--shadow-hard);
+      position: relative;
+    }
+
+    .badge-top {
+      display: inline-block;
+      background: var(--black);
+      color: #ffffff;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.85rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.25rem;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 10vw, 7.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.88;
+      margin-bottom: 1.25rem;
+      word-break: break-word;
+      letter-spacing: -0.04em;
+    }
+
+    .hero-desc {
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      font-weight: 700;
+      max-width: 780px;
+      line-height: 1.35;
+      border-top: var(--border-thick);
+      padding-top: 1.25rem;
+      background: rgba(255, 255, 255, 0.4);
+      padding: 1rem;
+    }
+
+    /* FILTER BAR */
+    .filter-wrapper {
+      margin-bottom: 3rem;
+    }
+
+    .filter-title {
+      font-size: 1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+      background: var(--black);
+      color: #fff;
+      padding: 0.2rem 0.6rem;
+    }
+
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .filter-btn {
+      font-family: inherit;
+      font-size: 1.15rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 0.85rem 1.75rem;
+      border: var(--border-thick);
+      background: #ffffff;
+      color: var(--black);
+      cursor: pointer;
+      box-shadow: var(--shadow-hard);
+      transition: none; /* Instant snappy interaction */
+      user-select: none;
+    }
+
+    .filter-btn:hover {
+      background: var(--cyan);
+      transform: translate(3px, 3px);
+      box-shadow: 5px 5px 0 var(--black);
+    }
+
+    .filter-btn:active {
+      transform: translate(8px, 8px);
+      box-shadow: var(--shadow-pressed);
+    }
+
+    .filter-btn.active {
+      background: var(--lime);
+      color: var(--black);
+      transform: translate(4px, 4px);
+      box-shadow: 4px 4px 0 var(--black);
+      outline: 3px solid var(--black);
+    }
+
+    /* THE GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+      gap: 2.5rem;
+      margin-bottom: 4rem;
+    }
+
+    /* DONATION CARD */
+    .card {
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 2rem;
+      background: #ffffff;
+      position: relative;
+      transition: none;
+    }
+
+    .card:hover {
+      transform: translate(3px, 3px);
+      box-shadow: 5px 5px 0 var(--black);
+    }
+
+    /* Asymmetric category tags */
+    .card-category {
+      display: inline-block;
+      align-self: flex-start;
+      border: 3px solid var(--black);
+      font-size: 0.85rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 0.3rem 0.65rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .category-humanitarian {
+      background: var(--pink);
+    }
+
+    .category-political {
+      background: var(--yellow);
+    }
+
+    .category-ecological {
+      background: var(--lime);
+    }
+
+    .card-title {
+      font-size: 1.85rem;
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .card-desc {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.45;
+      margin-bottom: 2rem;
+      color: #111;
+      flex-grow: 1;
+    }
+
+    /* DONATE BUTTON */
+    .donate-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 1.25rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 1.1rem 1rem;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      cursor: pointer;
+      color: #ffffff;
+      background: var(--purple);
+      transition: none;
+      letter-spacing: 0.02em;
+    }
+
+    .donate-btn:hover {
+      background: var(--black);
+      color: #ffffff;
+      transform: translate(4px, 4px);
+      box-shadow: 4px 4px 0 var(--black);
+    }
+
+    .donate-btn:active {
+      transform: translate(8px, 8px);
+      box-shadow: var(--shadow-pressed);
+    }
+
+    /* Alternating Card Accents */
+    .card:nth-child(2n) .donate-btn {
+      background: var(--pink);
+      color: var(--black);
+    }
+    .card:nth-child(3n) .donate-btn {
+      background: var(--cyan);
+      color: var(--black);
+    }
+    .card:nth-child(4n) .donate-btn {
+      background: var(--lime);
+      color: var(--black);
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: var(--border-thick);
+      padding-top: 2rem;
+      text-align: center;
+      font-size: 1.15rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    footer a {
+      color: var(--black);
+      text-decoration: none;
+      background: var(--yellow);
+      border: 3px solid var(--black);
+      padding: 0.15rem 0.5rem;
+      display: inline-block;
+      margin-left: 0.25rem;
+      box-shadow: 3px 3px 0 var(--black);
+      transition: none;
+    }
+
+    footer a:hover {
+      background: var(--pink);
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--black);
+    }
+
+    footer a:active {
+      transform: translate(3px, 3px);
+      box-shadow: 0 0 0 var(--black);
+    }
+
+    /* UTILITY: Hidden state for filtered items */
+    .card.hidden {
+      display: none;
+    }
+
+    /* RESPONSIVE TWEAKS */
+    @media (max-width: 600px) {
+      body {
+        padding: 1.25rem 1rem 3rem;
+      }
+      header {
+        padding: 1.5rem 1.25rem;
+      }
+      .filter-bar {
+        gap: 0.75rem;
+      }
+      .filter-btn {
+        width: 100%;
+        text-align: center;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HERO SECTION -->
+    <header>
+      <span class="badge-top">Direct Impact &bull; Verified Causes</span>
+      <h1>HELP FOR US</h1>
+      <p class="hero-desc">
+        A curated, zero-friction hub for urgent mutual aid, emergency relief, and direct political and ecological action. Give directly where it counts most.
+      </p>
+    </header>
+
+    <!-- FILTER BAR -->
+    <div class="filter-wrapper">
+      <div class="filter-title">Filter by Category</div>
+      <nav class="filter-bar" aria-label="Donation categories">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="humanitarian">HUMANITARIAN</button>
+        <button class="filter-btn" data-filter="political">POLITICAL</button>
+        <button class="filter-btn" data-filter="ecological">ECOLOGICAL</button>
+      </nav>
+    </div>
+
+    <!-- THE GRID -->
+    <main class="grid" id="donation-grid">
+      <!-- The Gaza Fund -->
+      <article class="card" data-category="humanitarian">
+        <div>
+          <span class="card-category category-humanitarian">Humanitarian</span>
+          <h2 class="card-title">The Gaza Fund</h2>
+          <p class="card-desc">
+            Direct humanitarian relief and emergency financial aid provided straight to displaced families and individuals enduring crisis in Gaza.
+          </p>
+        </div>
+        <a href="https://thegazafund.com/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Doctors Without Borders -->
+      <article class="card" data-category="humanitarian">
+        <div>
+          <span class="card-category category-humanitarian">Humanitarian</span>
+          <h2 class="card-title">Doctors Without Borders</h2>
+          <p class="card-desc">
+            Independent, impartial medical humanitarian assistance providing urgent emergency healthcare in over 70 conflict zones and disaster areas worldwide.
+          </p>
+        </div>
+        <a href="https://www.doctorswithoutborders.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- UNITED24 -->
+      <article class="card" data-category="humanitarian">
+        <div>
+          <span class="card-category category-humanitarian">Humanitarian</span>
+          <h2 class="card-title">UNITED24 (Ukraine)</h2>
+          <p class="card-desc">
+            The official global fundraising platform for Ukraine, directing crucial resources toward urgent medical aid, humanitarian relief, and reconstruction.
+          </p>
+        </div>
+        <a href="https://u24.gov.ua/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Democratic National Committee / ActBlue -->
+      <article class="card" data-category="political">
+        <div>
+          <span class="card-category category-political">Political</span>
+          <h2 class="card-title">Democratic National Committee / ActBlue</h2>
+          <p class="card-desc">
+            Grassroots mobilization and direct political action funding to support progressive campaigns, voter protection, and legislative advocacy nationwide.
+          </p>
+        </div>
+        <a href="https://secure.actblue.com/donate/dnc-web-donate" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Earth & Ecology Action -->
+      <article class="card" data-category="ecological">
+        <div>
+          <span class="card-category category-ecological">Ecological</span>
+          <h2 class="card-title">Earth &amp; Ecology Action (Placeholder)</h2>
+          <p class="card-desc">
+            Frontline environmental defense and community climate resistance initiatives supporting sustainable ecosystems and direct ecological action.
+          </p>
+        </div>
+        <a href="#" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      made with &#10084;&#65039; by <a href="https://isaacmcginnis.com" target="_blank" rel="noopener noreferrer">Isaac</a>
+    </footer>
+  </div>
+
+  <!-- JAVASCRIPT FILTERING FUNCTIONALITY -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterButtons = document.querySelectorAll('.filter-btn');
+      const cards = document.querySelectorAll('.card');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // Manage button active states
+          filterButtons.forEach(btn => btn.classList.remove('active'));
+          button.classList.add('active');
+
+          const selectedCategory = button.getAttribute('data-filter');
+
+          // Filter card grid
+          cards.forEach(card => {
+            const cardCategory = card.getAttribute('data-category');
+            if (selectedCategory === 'all' || cardCategory === selectedCategory) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

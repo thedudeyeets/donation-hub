@@ -1,7 +1,7 @@
 # helpfor.us — Curated Donation Hub
 
-> **A curated, zero-friction resource hub for urgent mutual aid, emergency relief, and direct political, ecological, and local youth empowerment.**  
-> Built with raw, hand-crafted neobrutalist web design. No standard CSS frameworks, no fluff—just verified causes with direct action links.
+> **A curated, zero-friction resource hub for urgent mutual aid, emergency relief, bodily autonomy, domestic violence survivor support, homeless shelter, ecological defense, and youth pathways.**  
+> Built with raw, hand-crafted neobrutalist web design. No standard CSS frameworks, no corporate charity fluff—just verified causes with direct action donation links.
 
 * **Live Site / Local File:** [`index.html`](index.html)
 * **Maintained By:** [Isaac McGinnis](https://isaacmcginnis.com)
@@ -11,7 +11,48 @@
 
 ## Verified Causes & Fund Breakdown
 
-Every single organization listed here has been independently verified with active donation portals. There are no placeholder links or corporate charity fluff.
+Every single organization listed here has been independently verified with active donation portals.
+
+### ✊ Pro-Choice & Reproductive Rights
+
+* **[National Network of Abortion Funds (NNAF)](https://abortionfunds.org/)**
+  * **What the funds are for:** Direct financial and logistical assistance (transportation, lodging, childcare, and procedure costs) removing systemic and financial barriers for people seeking abortion care across all 50 states.
+* **[Center for Reproductive Rights](https://reproductiverights.org/)**
+  * **What the funds are for:** High-stakes legal advocacy and constitutional litigation defending reproductive freedom, bodily autonomy, and maternal healthcare access in domestic and international courts.
+* **[Planned Parenthood](https://www.plannedparenthood.org/)**
+  * **What the funds are for:** Vital reproductive healthcare delivery, life-saving cancer screenings, STI testing and treatment, contraception, and state and federal policy advocacy for patient rights.
+* **[Yellowhammer Fund](https://www.yellowhammerfund.org/)**
+  * **What the funds are for:** Frontline reproductive justice mutual aid providing direct financial assistance, emergency contraception, and pregnancy support for individuals across Alabama and the Deep South.
+
+---
+
+### 🛡️ Domestic Violence Survivors & Women's Support
+
+* **[National Domestic Violence Hotline](https://www.thehotline.org/)**
+  * **What the funds are for:** 24/7/365 confidential crisis lifeline offering live intervention, safety planning, legal navigation, and emergency shelter connections for survivors of intimate partner abuse.
+* **[YWCA Greater Harrisburg](https://www.ywcahbg.org/)**
+  * **What the funds are for:** Operates emergency safe shelters, 24/7 crisis lines, trauma counseling, and legal advocacy for women and children escaping domestic violence and sexual assault in Central Pennsylvania.
+* **[National Network to End Domestic Violence (NNEDV)](https://nnedv.org/)**
+  * **What the funds are for:** The leading national voice representing 56 state and territorial domestic violence coalitions, championing federal survivor protection legislation, tech safety, and micro-loan housing independence programs.
+* **[YW Boston](https://www.ywboston.org/)**
+  * **What the funds are for:** Community advocacy, women's empowerment, youth leadership programs, and systemic equity initiatives combating gender-based violence and racial injustice across Greater Boston.
+
+---
+
+### 🏠 Housing & Homeless Programs
+
+* **[Rosie's Place (Boston, MA)](https://www.rosiesplace.org/)**
+  * **What the funds are for:** The first women's shelter in the United States, providing safe emergency housing, hot meals, essential groceries, legal aid, and multi-service advocacy for poor and unhoused women.
+* **[Pine Street Inn (Boston, MA)](https://www.pinestreetinn.org/)**
+  * **What the funds are for:** New England's largest shelter and housing network, funding 24/7 emergency street outreach teams, permanent supportive housing, and workforce training helping individuals exit chronic homelessness.
+* **[Bethesda Mission (Harrisburg, PA)](https://www.bethesdamission.org/)**
+  * **What the funds are for:** Frontline rescue mission delivering emergency shelter beds, thousands of hot meals, addiction recovery programs, and transitional housing for unhoused men, women, and families across Harrisburg.
+* **[Covenant House](https://www.covenanthouse.org/)**
+  * **What the funds are for:** Immediate 24/7 crisis housing, medical clinics, legal aid, and educational/vocational training for youth and runaway teens facing homelessness and human trafficking.
+* **[National Alliance to End Homelessness](https://endhomelessness.org/)**
+  * **What the funds are for:** Research-backed policy development, federal advocacy, and nationwide technical assistance helping cities build rapid-rehousing and Housing First infrastructure.
+
+---
 
 ### 🍫 Hershey & Central PA Direct Action
 
@@ -79,7 +120,7 @@ Every single organization listed here has been independently verified with activ
 
 * **Design Aesthetic:** Raw Neobrutalism (Space Grotesk typography, off-white background `#f4f4f0`, thick `4px solid black` borders, and unblurred `8px 8px 0 #000` drop-shadows).
 * **Interactivity:** Physical mechanical button press simulation (`translate(4px, 4px)` on hover and `translate(8px, 8px)` on active click with snappy zero-easing).
-* **Vanilla JavaScript:** Fast client-side category filtering (`ALL`, `HUMANITARIAN`, `YOUTH & LOCAL`, `POLITICAL`, `ECOLOGICAL`) with real-time visible cause counts.
+* **Vanilla JavaScript:** Fast client-side category filtering (`ALL`, `PRO-CHOICE & REPRODUCTIVE`, `DOMESTIC VIOLENCE & WOMEN`, `HOUSING & HOMELESSNESS`, `YOUTH & LOCAL`, `HUMANITARIAN`, `POLITICAL`, `ECOLOGICAL`) with live count calculations.
 * **Zero Dependencies:** Pure HTML5, CSS3, and vanilla JS contained in a single responsive file.
 
 ---

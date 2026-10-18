@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>helpfor.us — Urgent Mutual Aid & Direct Action</title>
+  <title>helpfor.us — Urgent Mutual Aid & Direct Action Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;900&display=swap" rel="stylesheet">
@@ -23,7 +23,8 @@
       --purple: #8A2BE2;
       --cyan: #22CCEE;
       --lime: #32CD32;
-      --orange: #FF5722;
+      --orange: #FF6B35;
+      --coral: #FF5E7E;
       --border-thick: 4px solid #000000;
       --shadow-hard: 8px 8px 0 #000000;
       --shadow-pressed: 0 0 0 #000000;
@@ -44,13 +45,13 @@
 
     .container {
       width: 100%;
-      max-width: 1300px;
+      max-width: 1350px;
       margin: 0 auto;
     }
 
     /* HEADER / HERO */
     header {
-      margin-bottom: 3.5rem;
+      margin-bottom: 3rem;
       border: var(--border-thick);
       background: var(--yellow);
       padding: 2.75rem 2.25rem;
@@ -81,9 +82,9 @@
     }
 
     .hero-desc {
-      font-size: clamp(1.1rem, 2.2vw, 1.55rem);
+      font-size: clamp(1.1rem, 2.2vw, 1.5rem);
       font-weight: 700;
-      max-width: 900px;
+      max-width: 950px;
       line-height: 1.35;
       border-top: var(--border-thick);
       padding-top: 1.25rem;
@@ -91,11 +92,11 @@
       padding: 1.25rem;
     }
 
-    /* STATS / IMPACT STRIP */
+    /* IMPACT STRIP */
     .impact-strip {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
+      gap: 0.85rem;
       margin-top: 1.5rem;
     }
 
@@ -103,7 +104,7 @@
       background: #ffffff;
       border: 3px solid var(--black);
       padding: 0.4rem 0.85rem;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 900;
       text-transform: uppercase;
       box-shadow: 4px 4px 0 var(--black);
@@ -146,21 +147,21 @@
     .filter-bar {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.85rem;
+      gap: 0.75rem;
     }
 
     .filter-btn {
       font-family: inherit;
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 0.8rem 1.4rem;
+      padding: 0.75rem 1.35rem;
       border: var(--border-thick);
       background: #ffffff;
       color: var(--black);
       cursor: pointer;
       box-shadow: var(--shadow-hard);
-      transition: none; /* snappy zero-easing */
+      transition: none; /* Instant snappy interaction */
       user-select: none;
     }
 
@@ -186,7 +187,7 @@
     /* THE GRID */
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
       gap: 2.25rem;
       margin-bottom: 4.5rem;
     }
@@ -221,15 +222,33 @@
     .card-category {
       display: inline-block;
       border: 3px solid var(--black);
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
+      padding: 0.25rem 0.55rem;
       letter-spacing: 0.05em;
     }
 
     .category-humanitarian {
       background: var(--pink);
+    }
+
+    .category-prochoice {
+      background: var(--coral);
+      color: #fff;
+    }
+
+    .category-dv {
+      background: #D8B4E2;
+    }
+
+    .category-homeless {
+      background: var(--orange);
+      color: #fff;
+    }
+
+    .category-youth {
+      background: #FFD166;
     }
 
     .category-political {
@@ -240,34 +259,26 @@
       background: var(--lime);
     }
 
-    .category-community {
-      background: var(--cyan);
-    }
-
-    .category-youth {
-      background: #FFA07A;
-    }
-
     .location-tag {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 900;
       text-transform: uppercase;
       background: #000;
       color: #fff;
-      padding: 0.25rem 0.6rem;
+      padding: 0.25rem 0.55rem;
       letter-spacing: 0.05em;
     }
 
     .card-title {
-      font-size: 1.75rem;
+      font-size: 1.7rem;
       font-weight: 900;
       line-height: 1.1;
-      margin-bottom: 1rem;
+      margin-bottom: 0.9rem;
       text-transform: uppercase;
     }
 
     .card-desc {
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 700;
       line-height: 1.45;
       margin-bottom: 1.85rem;
@@ -324,6 +335,10 @@
       background: var(--lime);
       color: var(--black);
     }
+    .card:nth-child(6n) .donate-btn {
+      background: var(--orange);
+      color: #ffffff;
+    }
 
     /* FOOTER */
     footer {
@@ -373,7 +388,7 @@
         padding: 1.6rem 1.25rem;
       }
       .filter-bar {
-        gap: 0.65rem;
+        gap: 0.6rem;
       }
       .filter-btn {
         width: 100%;
@@ -389,16 +404,17 @@
   <div class="container">
     <!-- HERO SECTION -->
     <header>
-      <span class="badge-top">Direct Impact &bull; 100% Verified Non-Profits</span>
+      <span class="badge-top">Direct Impact &bull; 100% Verified Resource Hub</span>
       <h1>HELP FOR US</h1>
       <p class="hero-desc">
-        A curated, zero-friction hub for urgent mutual aid, emergency relief, and direct political, ecological, and local youth empowerment. All causes are individually verified. Give directly where it counts most.
+        A curated, zero-friction hub for urgent mutual aid, emergency relief, bodily autonomy, domestic violence survivor support, homeless shelter, ecological defense, and youth pathways. All causes are individually verified. Give directly where it counts most.
       </p>
       <div class="impact-strip">
-        <span class="stat-pill">&#x2713; Global Relief</span>
-        <span class="stat-pill">&#x2713; Central PA &amp; Hershey Roots</span>
-        <span class="stat-pill">&#x2713; Boston Youth Pathways</span>
-        <span class="stat-pill">&#x2713; Direct Action</span>
+        <span class="stat-pill">&#x2713; Reproductive Freedom</span>
+        <span class="stat-pill">&#x2713; DV Survivor Safety</span>
+        <span class="stat-pill">&#x2713; Direct Homeless Shelters</span>
+        <span class="stat-pill">&#x2713; PA &amp; Boston Local Roots</span>
+        <span class="stat-pill">&#x2713; Frontline Mutual Aid</span>
       </div>
     </header>
 
@@ -410,8 +426,11 @@
       </div>
       <nav class="filter-bar" aria-label="Donation categories">
         <button class="filter-btn active" data-filter="all">ALL</button>
-        <button class="filter-btn" data-filter="humanitarian">HUMANITARIAN</button>
+        <button class="filter-btn" data-filter="prochoice">PRO-CHOICE &amp; REPRODUCTIVE</button>
+        <button class="filter-btn" data-filter="dv">DOMESTIC VIOLENCE &amp; WOMEN</button>
+        <button class="filter-btn" data-filter="homeless">HOUSING &amp; HOMELESSNESS</button>
         <button class="filter-btn" data-filter="youth">YOUTH &amp; LOCAL</button>
+        <button class="filter-btn" data-filter="humanitarian">HUMANITARIAN</button>
         <button class="filter-btn" data-filter="political">POLITICAL</button>
         <button class="filter-btn" data-filter="ecological">ECOLOGICAL</button>
       </nav>
@@ -420,93 +439,231 @@
     <!-- THE GRID -->
     <main class="grid" id="donation-grid">
 
-      <!-- ================= HUMANITARIAN ================= -->
-      <!-- The Gaza Fund -->
-      <article class="card" data-category="humanitarian">
+      <!-- ================= PRO-CHOICE & REPRODUCTIVE RIGHTS ================= -->
+      <!-- National Network of Abortion Funds -->
+      <article class="card" data-category="prochoice">
         <div>
           <div class="card-top">
-            <span class="card-category category-humanitarian">Humanitarian</span>
-            <span class="location-tag">Gaza Relief</span>
+            <span class="card-category category-prochoice">Pro-Choice</span>
+            <span class="location-tag">National</span>
           </div>
-          <h2 class="card-title">The Gaza Fund</h2>
+          <h2 class="card-title">National Network of Abortion Funds (NNAF)</h2>
           <p class="card-desc">
-            Direct emergency relief and mutual aid provided straight to displaced families, urgent medical evacuations, and individuals enduring devastating conditions in Gaza.
+            Direct financial and logistical support (travel, lodging, child care, and procedure costs) removing systemic and economic barriers for people accessing abortion care nationwide.
           </p>
         </div>
-        <a href="https://thegazafund.com/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+        <a href="https://abortionfunds.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
           DONATE DIRECTLY &rarr;
         </a>
       </article>
 
-      <!-- Palestine Children's Relief Fund (PCRF) -->
-      <article class="card" data-category="humanitarian">
+      <!-- Center for Reproductive Rights -->
+      <article class="card" data-category="prochoice">
         <div>
           <div class="card-top">
-            <span class="card-category category-humanitarian">Humanitarian</span>
-            <span class="location-tag">Middle East</span>
+            <span class="card-category category-prochoice">Pro-Choice</span>
+            <span class="location-tag">Legal Defense</span>
           </div>
-          <h2 class="card-title">Palestine Children's Relief Fund</h2>
+          <h2 class="card-title">Center for Reproductive Rights</h2>
           <p class="card-desc">
-            Provides free medical care to injured and ill children who lack access to local healthcare infrastructure, deploying surgical teams and critical pediatric aid.
+            Global legal advocacy and human rights litigation defending reproductive freedom, bodily autonomy, and maternal healthcare access in high-stakes courtrooms.
           </p>
         </div>
-        <a href="https://www.pcrf.net/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+        <a href="https://reproductiverights.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
           DONATE DIRECTLY &rarr;
         </a>
       </article>
 
-      <!-- Doctors Without Borders (MSF) -->
-      <article class="card" data-category="humanitarian">
+      <!-- Planned Parenthood Action Fund -->
+      <article class="card" data-category="prochoice">
         <div>
           <div class="card-top">
-            <span class="card-category category-humanitarian">Humanitarian</span>
-            <span class="location-tag">Global</span>
+            <span class="card-category category-prochoice">Pro-Choice</span>
+            <span class="location-tag">Healthcare &amp; Advocacy</span>
           </div>
-          <h2 class="card-title">Doctors Without Borders</h2>
+          <h2 class="card-title">Planned Parenthood</h2>
           <p class="card-desc">
-            Independent, impartial medical humanitarian assistance delivering urgent emergency healthcare and frontline surgical units in over 70 conflict zones and disaster zones.
+            Delivers vital reproductive healthcare, cancer screenings, birth control, and life-saving family planning services while leading fierce advocacy for healthcare access.
           </p>
         </div>
-        <a href="https://www.doctorswithoutborders.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+        <a href="https://www.plannedparenthood.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
           DONATE DIRECTLY &rarr;
         </a>
       </article>
 
-      <!-- World Central Kitchen -->
-      <article class="card" data-category="humanitarian">
+      <!-- Yellowhammer Fund -->
+      <article class="card" data-category="prochoice">
         <div>
           <div class="card-top">
-            <span class="card-category category-humanitarian">Humanitarian</span>
-            <span class="location-tag">Crisis Feeding</span>
+            <span class="card-category category-prochoice">Pro-Choice</span>
+            <span class="location-tag">Deep South</span>
           </div>
-          <h2 class="card-title">World Central Kitchen</h2>
+          <h2 class="card-title">Yellowhammer Fund</h2>
           <p class="card-desc">
-            Rapid direct action deploying first-responder field kitchens and hot, nutritious meals to communities impacted by humanitarian, climate, and community crises.
+            Frontline reproductive justice organization providing financial aid, emergency contraception, and pregnancy support for individuals across Alabama and the Deep South.
           </p>
         </div>
-        <a href="https://wck.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+        <a href="https://www.yellowhammerfund.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
           DONATE DIRECTLY &rarr;
         </a>
       </article>
 
-      <!-- UNITED24 -->
-      <article class="card" data-category="humanitarian">
+      <!-- ================= DOMESTIC VIOLENCE & WOMEN'S SURVIVOR PROGRAMS ================= -->
+      <!-- National Domestic Violence Hotline -->
+      <article class="card" data-category="dv">
         <div>
           <div class="card-top">
-            <span class="card-category category-humanitarian">Humanitarian</span>
-            <span class="location-tag">Ukraine</span>
+            <span class="card-category category-dv">DV Survivors</span>
+            <span class="location-tag">National 24/7</span>
           </div>
-          <h2 class="card-title">UNITED24 (Ukraine)</h2>
+          <h2 class="card-title">National Domestic Violence Hotline</h2>
           <p class="card-desc">
-            The official global fundraising platform for Ukraine, directing crucial resources toward urgent medical aid, frontline humanitarian assistance, and civic rebuilding.
+            24/7/365 confidential lifeline providing essential crisis intervention, safety planning, legal navigation, and emergency shelter referrals for survivors of relationship abuse.
           </p>
         </div>
-        <a href="https://u24.gov.ua/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+        <a href="https://www.thehotline.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
           DONATE DIRECTLY &rarr;
         </a>
       </article>
 
-      <!-- ================= YOUTH & LOCAL (HERSHEY / HARRISBURG / BOSTON) ================= -->
+      <!-- YWCA Greater Harrisburg -->
+      <article class="card" data-category="dv">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-dv">DV Survivors</span>
+            <span class="location-tag">Harrisburg, PA</span>
+          </div>
+          <h2 class="card-title">YWCA Greater Harrisburg</h2>
+          <p class="card-desc">
+            Provides emergency shelter, crisis hotlines, trauma counseling, and legal advocacy for women and children surviving domestic violence and sexual assault in Central PA.
+          </p>
+        </div>
+        <a href="https://www.ywcahbg.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- National Network to End Domestic Violence (NNEDV) -->
+      <article class="card" data-category="dv">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-dv">DV Survivors</span>
+            <span class="location-tag">Policy &amp; Resources</span>
+          </div>
+          <h2 class="card-title">NNEDV</h2>
+          <p class="card-desc">
+            The leading national voice representing 56 state and territorial domestic violence coalitions, championing survivor protection legislation, tech safety, and housing independence.
+          </p>
+        </div>
+        <a href="https://nnedv.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- YW Boston -->
+      <article class="card" data-category="dv">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-dv">Women &amp; Justice</span>
+            <span class="location-tag">Boston, MA</span>
+          </div>
+          <h2 class="card-title">YW Boston</h2>
+          <p class="card-desc">
+            Dedicated to eliminating racism, empowering women, and promoting safety and equity through youth leadership programs, community advocacy, and racial justice initiatives.
+          </p>
+        </div>
+        <a href="https://www.ywboston.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- ================= HOUSING & HOMELESS PROGRAMS ================= -->
+      <!-- Rosie's Place (Boston Women's Sanctuary) -->
+      <article class="card" data-category="homeless">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-homeless">Housing &amp; Shelter</span>
+            <span class="location-tag">Boston, MA</span>
+          </div>
+          <h2 class="card-title">Rosie's Place</h2>
+          <p class="card-desc">
+            The first women's shelter in the United States, providing a safe haven, meals, emergency housing, legal assistance, and multi-service advocacy for poor and homeless women.
+          </p>
+        </div>
+        <a href="https://www.rosiesplace.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Pine Street Inn (Boston) -->
+      <article class="card" data-category="homeless">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-homeless">Housing &amp; Shelter</span>
+            <span class="location-tag">Boston, MA</span>
+          </div>
+          <h2 class="card-title">Pine Street Inn</h2>
+          <p class="card-desc">
+            New England's largest provider of emergency street outreach, emergency shelters, job training, and permanent supportive housing helping individuals exit homelessness.
+          </p>
+        </div>
+        <a href="https://www.pinestreetinn.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Bethesda Mission (Harrisburg, PA) -->
+      <article class="card" data-category="homeless">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-homeless">Housing &amp; Shelter</span>
+            <span class="location-tag">Harrisburg, PA</span>
+          </div>
+          <h2 class="card-title">Bethesda Mission</h2>
+          <p class="card-desc">
+            Frontline rescue mission delivering emergency shelter beds, thousands of warm meals, addiction recovery programs, and transitional housing for unhoused men, women, and families in Harrisburg.
+          </p>
+        </div>
+        <a href="https://www.bethesdamission.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Covenant House -->
+      <article class="card" data-category="homeless">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-homeless">Housing &amp; Shelter</span>
+            <span class="location-tag">Homeless Youth</span>
+          </div>
+          <h2 class="card-title">Covenant House</h2>
+          <p class="card-desc">
+            Provides 24/7 crisis care, immediate shelter, medical clinics, and job readiness programs for youth facing homelessness, human trafficking, and severe housing instability.
+          </p>
+        </div>
+        <a href="https://www.covenanthouse.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- National Alliance to End Homelessness -->
+      <article class="card" data-category="homeless">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-homeless">Housing &amp; Shelter</span>
+            <span class="location-tag">National Policy</span>
+          </div>
+          <h2 class="card-title">National Alliance to End Homelessness</h2>
+          <p class="card-desc">
+            A nonpartisan organization committed to preventing and ending homelessness through research, evidence-based housing solutions, and federal policy advocacy.
+          </p>
+        </div>
+        <a href="https://endhomelessness.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- ================= YOUTH & LOCAL ================= -->
       <!-- Cocoa Packs (Hershey, PA) -->
       <article class="card" data-category="youth">
         <div>
@@ -516,7 +673,7 @@
           </div>
           <h2 class="card-title">Cocoa Packs (Hershey)</h2>
           <p class="card-desc">
-            Hershey-based 501(c)(3) providing targeted weekend food security, essential clothing, and wraparound educational support to thousands of children across Derry Township and Central PA.
+            Hershey-based 501(c)(3) providing targeted weekend food security, clothing closet essentials, and wraparound educational support to thousands of children in Derry Township and Central PA.
           </p>
         </div>
         <a href="https://cocoapacks.org/support/" target="_blank" rel="noopener noreferrer" class="donate-btn">
@@ -643,6 +800,92 @@
         </a>
       </article>
 
+      <!-- ================= HUMANITARIAN ================= -->
+      <!-- The Gaza Fund -->
+      <article class="card" data-category="humanitarian">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-humanitarian">Humanitarian</span>
+            <span class="location-tag">Gaza Relief</span>
+          </div>
+          <h2 class="card-title">The Gaza Fund</h2>
+          <p class="card-desc">
+            Direct emergency relief and mutual aid provided straight to displaced families, urgent medical evacuations, and individuals enduring devastating conditions in Gaza.
+          </p>
+        </div>
+        <a href="https://thegazafund.com/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Palestine Children's Relief Fund (PCRF) -->
+      <article class="card" data-category="humanitarian">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-humanitarian">Humanitarian</span>
+            <span class="location-tag">Middle East</span>
+          </div>
+          <h2 class="card-title">Palestine Children's Relief Fund</h2>
+          <p class="card-desc">
+            Provides free medical care to injured and ill children who lack access to local healthcare infrastructure, deploying surgical teams and critical pediatric aid.
+          </p>
+        </div>
+        <a href="https://www.pcrf.net/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- Doctors Without Borders (MSF) -->
+      <article class="card" data-category="humanitarian">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-humanitarian">Humanitarian</span>
+            <span class="location-tag">Global</span>
+          </div>
+          <h2 class="card-title">Doctors Without Borders</h2>
+          <p class="card-desc">
+            Independent, impartial medical humanitarian assistance delivering urgent emergency healthcare and frontline surgical units in over 70 conflict zones and disaster zones.
+          </p>
+        </div>
+        <a href="https://www.doctorswithoutborders.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- World Central Kitchen -->
+      <article class="card" data-category="humanitarian">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-humanitarian">Humanitarian</span>
+            <span class="location-tag">Crisis Feeding</span>
+          </div>
+          <h2 class="card-title">World Central Kitchen</h2>
+          <p class="card-desc">
+            Rapid direct action deploying first-responder field kitchens and hot, nutritious meals to communities impacted by humanitarian, climate, and community crises.
+          </p>
+        </div>
+        <a href="https://wck.org/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
+      <!-- UNITED24 -->
+      <article class="card" data-category="humanitarian">
+        <div>
+          <div class="card-top">
+            <span class="card-category category-humanitarian">Humanitarian</span>
+            <span class="location-tag">Ukraine</span>
+          </div>
+          <h2 class="card-title">UNITED24 (Ukraine)</h2>
+          <p class="card-desc">
+            The official global fundraising platform for Ukraine, directing crucial resources toward urgent medical aid, frontline humanitarian assistance, and civic rebuilding.
+          </p>
+        </div>
+        <a href="https://u24.gov.ua/" target="_blank" rel="noopener noreferrer" class="donate-btn">
+          DONATE DIRECTLY &rarr;
+        </a>
+      </article>
+
       <!-- ================= POLITICAL ================= -->
       <!-- Democratic National Committee / ActBlue -->
       <article class="card" data-category="political">
@@ -695,6 +938,7 @@
           DONATE DIRECTLY &rarr;
         </a>
       </article>
+
     </main>
 
     <!-- FOOTER -->
@@ -725,7 +969,7 @@
         if (selectedCategory === 'all') {
           countIndicator.textContent = `Showing All Causes (${visibleCount})`;
         } else {
-          countIndicator.textContent = `Showing ${visibleCount} ${selectedCategory.toUpperCase()} Cause${visibleCount === 1 ? '' : 's'}`;
+          countIndicator.textContent = `Showing ${visibleCount} Matching Cause${visibleCount === 1 ? '' : 's'}`;
         }
       }
 

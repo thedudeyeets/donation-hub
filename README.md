@@ -11,7 +11,7 @@
 
 ## ⚡ Meet The Orgs
 
-* **Sticky Action Trigger:** Centered vertically along the right edge (`top: 50%; right: 2rem; transform: translateY(-50%)`) of the screen with a 4px black border, 6px unblurred drop-shadow, stark yellow accent, and snappy physical mechanical press physics (`translate(6px, 6px)`).
+* **Sticky Action Banner:** Fixed across the bottom of the screen with a solid 4px top border, high-contrast yellow accent, and a prominent neobrutalist button of the screen with a 4px black border, 6px unblurred drop-shadow, stark yellow accent, and snappy physical mechanical press physics (`translate(6px, 6px)`).
 * **Fullscreen Centered Spin Wheel:** 
   * Clicking **"Meet The Orgs"** launches a fullscreen centered neobrutalist card overlay (not a side modal) with all 29 verified organizations mapped into color-coded neon segments.
   * Clicking **"SPIN THE WHEEL"** triggers a physical roulette spin with cubic-eased deceleration.

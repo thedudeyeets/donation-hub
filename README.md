@@ -1,7 +1,7 @@
 # helpfor.us — Curated Donation Hub
 
 > **A curated, zero-friction resource hub for urgent mutual aid, emergency relief, bodily autonomy, domestic violence survivor support, homeless shelter, ecological defense, and youth pathways.**  
-> Built with raw, hand-crafted neobrutalist web design. No standard CSS frameworks, no corporate charity fluff—just verified causes with direct action donation links and an interactive **"Meet The Orgs"** spin wheel.
+> Built with raw, hand-crafted neobrutalist web design. No standard CSS frameworks, no corporate charity fluff—just verified causes with direct action donation links and an interactive **"Meet The Orgs"** random discovery wheel.
 
 * **Live Site / Local File:** [`index.html`](index.html)
 * **Maintained By:** [Isaac McGinnis](https://isaacmcginnis.com)
@@ -9,15 +9,16 @@
 
 ---
 
-## ⚡ Interactive Features
+## ⚡ Interactive Spin Wheel: "Meet The Orgs"
 
-* **Sticky "Meet The Orgs" Button:** Fixed to the bottom-right corner of the page with high-contrast neobrutalist styling, physical press physics, and an animated star icon.
-* **Neobrutalist Spin Wheel:** 
-  * Click to open a full modal containing an HTML5 Canvas-rendered, mechanical roulette wheel with all 29 causes divided into colored segments.
-  * Clicking **"SPIN THE WHEEL NOW"** triggers an organic cubic-eased physical spin that randomly selects a vetted organization.
-  * Displays the selected organization's photo/media, category badge, geographic focus, detailed description, and a direct donation action button.
-  * Includes a **"Spin Again"** button for immediate continuous exploration.
-* **All 29 Causes Directory:** A secondary tab inside the modal providing a searchable, filterable grid of all 29 organizations with photography, category tags, descriptions, and direct links.
+* **Sticky Action Button:** Fixed to the bottom-right corner of the screen with bold 4px solid black borders, 6px unblurred drop-shadow, stark yellow accent, and mechanical zero-easing press physics (`translate(6px, 6px)`).
+* **Neobrutalist Roulette Wheel:** 
+  * Clicking **"Meet The Orgs"** opens a centered interactive wheel featuring all 29 verified organizations color-coded in neon segments.
+  * Clicking **"SPIN THE WHEEL"** triggers a dynamic, cubic-eased physical wheel spin.
+* **Automatic Landed Card Pop-Up:**
+  * As soon as the wheel finishes spinning and lands on an organization, a focused **Neobrutalist Pop-Up Card** immediately launches on top.
+  * The card displays the organization's verified photograph / media artwork, category badge, geographic tag, full mission description, and a direct **"DONATE DIRECTLY &rarr;"** link.
+  * Includes a **"Spin Again"** button to jump straight into the next spin.
 
 ---
 
@@ -132,10 +133,10 @@ Every single organization listed here has been independently verified with activ
 
 * **Design Aesthetic:** Raw Neobrutalism (Space Grotesk typography, off-white background `#f4f4f0`, thick `4px solid black` borders, and unblurred `8px 8px 0 #000` drop-shadows).
 * **Interactivity:** Physical mechanical button press simulation (`translate(4px, 4px)` on hover and `translate(8px, 8px)` on active click with snappy zero-easing).
-* **Vanilla JavaScript:** 
-  * Fast client-side category filtering with live count calculations.
-  * Canvas-rendered spin wheel with random selection physics, easing, and instant card population.
-  * Real-time search filter for the 29-organization directory modal.
+* **Interactive Random Wheel Discovery:**
+  * Clean, distraction-free wheel dialog opened from the sticky **Meet The Orgs** trigger.
+  * Physics-based wheel rotation with organic easing.
+  * Automatic popup of the landed organization card with photo/fallback art, full mission info, and direct donation link.
 * **Zero Dependencies:** Pure HTML5, CSS3, and vanilla JS contained in a single responsive file.
 
 ---

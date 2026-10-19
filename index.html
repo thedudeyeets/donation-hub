@@ -399,7 +399,7 @@
       }
     }
   
-    /* STICKY MEET THE ORGS BUTTON */
+/* STICKY MEET THE ORGS BUTTON */
     .sticky-meet-btn {
       position: fixed;
       bottom: 2rem;
@@ -449,27 +449,27 @@
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.78);
+      background: rgba(0, 0, 0, 0.8);
       z-index: 2000;
       display: none;
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
-      backdrop-filter: blur(2px);
+      backdrop-filter: blur(3px);
     }
 
     .modal-overlay.open {
       display: flex;
     }
 
-    /* MODAL WINDOW */
-    .modal-window {
+    /* MODAL WINDOW FOR WHEEL */
+    .wheel-modal-window {
       background: var(--bg);
       border: var(--border-thick);
       box-shadow: 12px 12px 0 var(--black);
       width: 100%;
-      max-width: 1100px;
-      max-height: 90vh;
+      max-width: 620px;
+      max-height: 94vh;
       display: flex;
       flex-direction: column;
       position: relative;
@@ -480,7 +480,7 @@
     .modal-header {
       background: var(--black);
       color: #fff;
-      padding: 1.25rem 1.75rem;
+      padding: 1.25rem 1.5rem;
       border-bottom: var(--border-thick);
       display: flex;
       justify-content: space-between;
@@ -489,7 +489,7 @@
     }
 
     .modal-header h2 {
-      font-size: clamp(1.3rem, 2.8vw, 2rem);
+      font-size: clamp(1.15rem, 2.5vw, 1.6rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.02em;
@@ -503,8 +503,8 @@
       font-size: 1.5rem;
       font-weight: 900;
       line-height: 1;
-      width: 44px;
-      height: 44px;
+      width: 42px;
+      height: 42px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -524,116 +524,64 @@
       box-shadow: 0 0 0 #fff;
     }
 
-    /* MODAL NAV TABS */
-    .modal-tabs {
-      display: flex;
-      background: #fff;
-      border-bottom: var(--border-thick);
-      flex-shrink: 0;
-      overflow-x: auto;
-    }
-
-    .modal-tab-btn {
-      background: #fff;
-      color: var(--black);
-      border: none;
-      border-right: var(--border-thick);
-      font-family: inherit;
-      font-size: 1.05rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      padding: 1rem 1.75rem;
-      cursor: pointer;
-      letter-spacing: 0.04em;
-      transition: none;
-      white-space: nowrap;
-    }
-
-    .modal-tab-btn:hover {
-      background: var(--cyan);
-    }
-
-    .modal-tab-btn.active {
-      background: var(--lime);
-      color: var(--black);
-      box-shadow: inset 0 -4px 0 var(--black);
-    }
-
-    /* MODAL BODY CONTAINER */
-    .modal-body {
-      padding: 2rem;
+    /* WHEEL MODAL BODY */
+    .wheel-modal-body {
+      padding: 2rem 1.5rem;
       overflow-y: auto;
-      flex-grow: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .tab-content {
-      display: none;
-    }
-
-    .tab-content.active {
-      display: block;
-    }
-
-    /* ================= WHEEL TAB STYLING ================= */
-    .wheel-layout {
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 2.25rem;
-      align-items: start;
-    }
-
-    .wheel-section {
       display: flex;
       flex-direction: column;
       align-items: center;
-      background: #fff;
-      border: var(--border-thick);
-      box-shadow: var(--shadow-hard);
-      padding: 1.75rem 1.25rem;
-      position: relative;
+      text-align: center;
+      background: repeating-linear-gradient(
+        -45deg,
+        #f4f4f0,
+        #f4f4f0 20px,
+        #eee 20px,
+        #eee 40px
+      );
     }
 
     .wheel-canvas-container {
       position: relative;
-      width: 320px;
-      height: 320px;
+      width: 360px;
+      height: 360px;
       max-width: 100%;
-      margin: 0.75rem 0 1rem;
+      margin: 1.25rem auto 1.5rem;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: var(--shadow-hard);
+      border: var(--border-thick);
     }
 
     #wheel-canvas {
       width: 100%;
       height: 100%;
       border-radius: 50%;
-      border: var(--border-thick);
-      box-shadow: 5px 5px 0 var(--black);
       display: block;
-      background: #fff;
     }
 
     .wheel-pointer {
       position: absolute;
-      top: -12px;
+      top: -16px;
       left: 50%;
       transform: translateX(-50%);
       width: 0;
       height: 0;
-      border-left: 18px solid transparent;
-      border-right: 18px solid transparent;
-      border-top: 30px solid var(--black);
-      z-index: 10;
-      filter: drop-shadow(0 3px 0 var(--pink));
+      border-left: 20px solid transparent;
+      border-right: 20px solid transparent;
+      border-top: 34px solid var(--black);
+      z-index: 20;
+      filter: drop-shadow(0 4px 0 var(--pink));
     }
 
     .spin-trigger-btn {
       width: 100%;
+      max-width: 420px;
       font-family: inherit;
       font-size: 1.35rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 1.1rem;
+      padding: 1.15rem 1.5rem;
       background: var(--lime);
       color: var(--black);
       border: var(--border-thick);
@@ -661,52 +609,83 @@
       transform: translate(3px, 3px);
     }
 
-    .wheel-helper-text {
-      margin-top: 0.85rem;
-      font-size: 0.85rem;
+    .wheel-subtext {
+      margin-top: 1rem;
+      font-size: 0.95rem;
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
       background: var(--yellow);
-      border: 2px solid var(--black);
-      padding: 0.3rem 0.6rem;
-      text-align: center;
+      border: 3px solid var(--black);
+      padding: 0.4rem 0.8rem;
+      box-shadow: 4px 4px 0 var(--black);
+      display: inline-block;
     }
 
-    /* RESULT CARD SECTION */
-    .wheel-result-container {
+    /* ================= LANDED RESULT POPUP CARD OVERLAY ================= */
+    .card-popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .card-popup-overlay.open {
+      display: flex;
+    }
+
+    .card-popup-window {
+      background: var(--bg);
+      border: var(--border-thick);
+      box-shadow: 14px 14px 0 var(--black);
+      width: 100%;
+      max-width: 600px;
+      max-height: 92vh;
       display: flex;
       flex-direction: column;
-      height: 100%;
+      position: relative;
+      overflow: hidden;
+      animation: popIn 0.15s cubic-bezier(0, 0, 0.2, 1);
     }
 
-    .result-banner {
-      display: inline-block;
-      align-self: flex-start;
-      background: var(--black);
+    @keyframes popIn {
+      0% { transform: scale(0.9) translateY(20px); opacity: 0; }
+      100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+
+    .card-popup-header {
+      background: var(--purple);
       color: #fff;
-      font-size: 0.9rem;
+      padding: 1.1rem 1.5rem;
+      border-bottom: var(--border-thick);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-popup-header h3 {
+      font-size: 1.35rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 0.35rem 0.8rem;
-      letter-spacing: 0.08em;
-      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+      color: #ffffff;
     }
 
-    .popup-org-card {
-      background: #fff;
-      border: var(--border-thick);
-      box-shadow: var(--shadow-hard);
+    .card-popup-body {
+      padding: 1.75rem;
+      overflow-y: auto;
+      background: #ffffff;
       display: flex;
       flex-direction: column;
-      padding: 1.75rem;
-      position: relative;
-      flex-grow: 1;
     }
 
     .popup-org-image-wrapper {
       width: 100%;
-      height: 200px;
+      height: 220px;
       border: var(--border-thick);
       background: #f0f0f0;
       margin-bottom: 1.25rem;
@@ -741,7 +720,7 @@
     }
 
     .fallback-org-title {
-      font-size: 1.05rem;
+      font-size: 1.1rem;
       font-weight: 900;
       background: var(--black);
       color: #fff;
@@ -749,7 +728,7 @@
       text-transform: uppercase;
     }
 
-    .popup-card-header {
+    .popup-card-meta {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -762,7 +741,7 @@
       font-size: 0.8rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
+      padding: 0.25rem 0.65rem;
       border: 3px solid var(--black);
       letter-spacing: 0.05em;
     }
@@ -771,13 +750,13 @@
       font-size: 0.8rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
+      padding: 0.25rem 0.65rem;
       background: var(--black);
       color: #fff;
     }
 
     .popup-card-title {
-      font-size: 1.65rem;
+      font-size: 1.85rem;
       font-weight: 900;
       text-transform: uppercase;
       line-height: 1.15;
@@ -785,11 +764,11 @@
     }
 
     .popup-card-desc {
-      font-size: 1.02rem;
+      font-size: 1.05rem;
       font-weight: 700;
       line-height: 1.45;
-      color: #222;
-      margin-bottom: 1.75rem;
+      color: #1a1a1a;
+      margin-bottom: 1.85rem;
       flex-grow: 1;
     }
 
@@ -801,14 +780,14 @@
 
     .popup-donate-btn {
       flex: 1;
-      min-width: 180px;
+      min-width: 190px;
       text-align: center;
       text-decoration: none;
       font-family: inherit;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 1rem;
+      padding: 1.05rem 1rem;
       background: var(--purple);
       color: #fff;
       border: var(--border-thick);
@@ -835,7 +814,7 @@
       font-size: 1.1rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 1rem 1.4rem;
+      padding: 1.05rem 1.4rem;
       background: var(--cyan);
       color: var(--black);
       border: var(--border-thick);
@@ -855,129 +834,16 @@
       box-shadow: var(--shadow-pressed);
     }
 
-    /* ================= DIRECTORY TAB STYLING ================= */
-    .roster-controls {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.75rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .roster-search-input {
-      flex: 1;
-      min-width: 260px;
-      font-family: inherit;
-      font-size: 1.05rem;
-      font-weight: 700;
-      padding: 0.85rem 1.2rem;
-      border: var(--border-thick);
-      box-shadow: 4px 4px 0 var(--black);
-      outline: none;
-      background: #fff;
-    }
-
-    .roster-search-input:focus {
-      border-color: var(--black);
-      box-shadow: 6px 6px 0 var(--black);
-    }
-
-    .roster-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1.75rem;
-    }
-
-    .roster-card {
-      background: #fff;
-      border: var(--border-thick);
-      box-shadow: 6px 6px 0 var(--black);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 1.5rem;
-      transition: none;
-    }
-
-    .roster-card:hover {
-      transform: translate(2px, 2px);
-      box-shadow: 4px 4px 0 var(--black);
-    }
-
-    .roster-card-image {
-      width: 100%;
-      height: 140px;
-      border: 3px solid var(--black);
-      margin-bottom: 1rem;
-      overflow: hidden;
-      background: #eee;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .roster-card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .roster-card-title {
-      font-size: 1.35rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      line-height: 1.15;
-      margin-bottom: 0.6rem;
-    }
-
-    .roster-card-desc {
-      font-size: 0.92rem;
-      font-weight: 700;
-      line-height: 1.4;
-      margin-bottom: 1.25rem;
-      color: #333;
-      flex-grow: 1;
-    }
-
-    .roster-donate-btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      text-decoration: none;
-      font-family: inherit;
-      font-size: 1.05rem;
-      font-weight: 900;
-      text-transform: uppercase;
-      padding: 0.85rem;
-      background: var(--lime);
-      color: var(--black);
-      border: 3px solid var(--black);
-      box-shadow: 4px 4px 0 var(--black);
-      transition: none;
-    }
-
-    .roster-donate-btn:hover {
-      background: var(--yellow);
-      transform: translate(2px, 2px);
-      box-shadow: 2px 2px 0 var(--black);
-    }
-
-    .roster-donate-btn:active {
-      transform: translate(4px, 4px);
-      box-shadow: 0 0 0 var(--black);
-    }
-
-    @media (max-width: 850px) {
-      .wheel-layout {
-        grid-template-columns: 1fr;
-        gap: 2rem;
+    @media (max-width: 650px) {
+      .wheel-modal-window, .card-popup-window {
+        max-height: 96vh;
       }
-      .modal-window {
-        max-height: 95vh;
+      .wheel-modal-body, .card-popup-body {
+        padding: 1.25rem 1rem;
       }
-      .modal-body {
-        padding: 1.25rem;
+      .wheel-canvas-container {
+        width: 290px;
+        height: 290px;
       }
       .sticky-meet-btn {
         bottom: 1.25rem;
@@ -985,8 +851,11 @@
         padding: 0.9rem 1.25rem;
         font-size: 1rem;
       }
+      .popup-card-title {
+        font-size: 1.5rem;
+      }
     }
-</style>
+  </style>
 </head>
 <body>
   <div class="container">
@@ -1535,93 +1404,77 @@
     </footer>
   </div>
 
-  <!-- STICKY BUTTON: MEET THE ORGS -->
+<!-- STICKY BUTTON: MEET THE ORGS -->
   <button id="meet-orgs-trigger" class="sticky-meet-btn" aria-label="Open Meet The Organizations Hub">
     <span class="sparkle">&#9733;</span>
     <span>Meet The Orgs</span>
     <span style="font-size:1.3rem;">&rarr;</span>
   </button>
 
-  <!-- NEOBRUTALIST MODAL: MEET THE ORGS & SPIN WHEEL -->
+  <!-- NEOBRUTALIST MODAL: MEET THE ORGS WHEEL -->
   <div id="meet-orgs-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-    <div class="modal-window">
+    <div class="wheel-modal-window">
       <!-- HEADER -->
       <div class="modal-header">
-        <h2 id="modal-headline">&#9889; MEET THE ORGANIZATIONS &bull; SPIN THE WHEEL</h2>
+        <h2 id="modal-headline">&#9889; MEET THE ORGS &bull; SPIN THE WHEEL</h2>
         <button id="modal-close" class="modal-close-btn" aria-label="Close dialog">&times;</button>
       </div>
 
-      <!-- TABS -->
-      <div class="modal-tabs">
-        <button class="modal-tab-btn active" data-tab="wheel">&#127920; Spin The Wheel</button>
-        <button class="modal-tab-btn" data-tab="directory">&#128218; All 29 Causes Directory</button>
-      </div>
-
       <!-- BODY -->
-      <div class="modal-body">
-        <!-- TAB 1: WHEEL -->
-        <div id="tab-wheel" class="tab-content active">
-          <div class="wheel-layout">
-            <!-- WHEEL DISPLAY & CONTROLS -->
-            <div class="wheel-section">
-              <span class="badge-top" style="margin-bottom:0.5rem; background:var(--black); color:#fff;">Random Direct Impact</span>
-              <div class="wheel-canvas-container">
-                <div class="wheel-pointer"></div>
-                <canvas id="wheel-canvas" width="600" height="600"></canvas>
-              </div>
-              <button id="spin-button" class="spin-trigger-btn">&#127922; SPIN THE WHEEL NOW</button>
-              <div class="wheel-helper-text">Click spin to randomly pick a vetted cause!</div>
-            </div>
-
-            <!-- RESULT DETAILS CARD -->
-            <div class="wheel-result-container">
-              <div class="result-banner" id="result-banner-text">Selected Cause Details</div>
-              <div class="popup-org-card" id="popup-org-card">
-                <!-- Org Image / Fallback -->
-                <div class="popup-org-image-wrapper" id="popup-image-container">
-                  <!-- Dynamically inserted image or graphic -->
-                </div>
-
-                <!-- Category & Location -->
-                <div class="popup-card-header">
-                  <span class="popup-category-badge" id="popup-category-badge">Category</span>
-                  <span class="popup-location-badge" id="popup-location-badge">Location</span>
-                </div>
-
-                <!-- Title & Description -->
-                <h3 class="popup-card-title" id="popup-title">Spin to reveal an organization</h3>
-                <p class="popup-card-desc" id="popup-desc">
-                  Hit the spin button to let fate direct your support. The wheel will land on one of the 29 verified mutual aid, direct action, youth, housing, reproductive rights, or ecological funds.
-                </p>
-
-                <!-- Action Button Row -->
-                <div class="popup-action-row">
-                  <a href="#" target="_blank" rel="noopener noreferrer" class="popup-donate-btn" id="popup-donate-link">
-                    DONATE DIRECTLY &rarr;
-                  </a>
-                  <button class="spin-again-btn" id="respin-btn">&#128260; Spin Again</button>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="wheel-modal-body">
+        <span class="badge-top" style="margin-bottom:0.25rem; background:var(--black); color:#fff;">Random Interactive Discovery</span>
+        
+        <div class="wheel-canvas-container">
+          <div class="wheel-pointer"></div>
+          <canvas id="wheel-canvas" width="600" height="600"></canvas>
         </div>
 
-        <!-- TAB 2: DIRECTORY OF ALL 29 ORGS -->
-        <div id="tab-directory" class="tab-content">
-          <div class="roster-controls">
-            <input type="text" id="roster-search" class="roster-search-input" placeholder="Search by name, location, or cause keyword..." />
-            <div class="count-indicator" id="roster-counter">Showing 29 Organizations</div>
-          </div>
-          <div class="roster-grid" id="roster-grid">
-            <!-- Dynamically populated roster cards -->
-          </div>
+        <button id="spin-button" class="spin-trigger-btn">&#127922; SPIN THE WHEEL</button>
+        <div class="wheel-subtext">Spin to randomly discover &amp; pop up a vetted cause!</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POPUP CARD MODAL (POPS UP WHEN WHEEL LANDS ON AN ORG) -->
+  <div id="card-popup-modal" class="card-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-title">
+    <div class="card-popup-window">
+      <!-- POPUP HEADER -->
+      <div class="card-popup-header">
+        <h3 id="popup-win-banner">&#127881; YOU LANDED ON A VETTED CAUSE!</h3>
+        <button id="popup-close-btn" class="modal-close-btn" aria-label="Close card dialog">&times;</button>
+      </div>
+
+      <!-- POPUP BODY -->
+      <div class="card-popup-body">
+        <!-- Organization Photo / Artwork -->
+        <div class="popup-org-image-wrapper" id="popup-image-container">
+          <!-- Dynamically inserted image or graphic -->
+        </div>
+
+        <!-- Category & Location Badges -->
+        <div class="popup-card-meta">
+          <span class="popup-category-badge" id="popup-category-badge">Category</span>
+          <span class="popup-location-badge" id="popup-location-badge">Location</span>
+        </div>
+
+        <!-- Title & Description -->
+        <h3 class="popup-card-title" id="popup-title">Organization Title</h3>
+        <p class="popup-card-desc" id="popup-desc">
+          Organization description and details.
+        </p>
+
+        <!-- Action Row -->
+        <div class="popup-action-row">
+          <a href="#" target="_blank" rel="noopener noreferrer" class="popup-donate-btn" id="popup-donate-link">
+            DONATE DIRECTLY &rarr;
+          </a>
+          <button class="spin-again-btn" id="respin-btn">&#128260; Spin Again</button>
         </div>
       </div>
     </div>
   </div>
 
-
-  <!-- JAVASCRIPT FILTERING FUNCTIONALITY -->
+    <!-- JAVASCRIPT FILTERING FUNCTIONALITY -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const filterButtons = document.querySelectorAll('.filter-btn');
@@ -1662,7 +1515,7 @@
     });
   </script>
 
-  <!-- ORGS DATASET & INTERACTIVE SPIN WHEEL SCRIPT -->
+<!-- ORGS DATASET & INTERACTIVE SPIN WHEEL POPUP SCRIPT -->
   <script>
     const ALL_ORGS = [
   {
@@ -1987,74 +1840,125 @@
 ];
 
     document.addEventListener('DOMContentLoaded', () => {
-      // DOM Elements
+      // Wheel Modal Elements
       const meetBtn = document.getElementById('meet-orgs-trigger');
-      const modal = document.getElementById('meet-orgs-modal');
-      const modalClose = document.getElementById('modal-close');
-      const tabBtns = document.querySelectorAll('.modal-tab-btn');
-      const tabContents = document.querySelectorAll('.tab-content');
-
-      // Wheel Elements
+      const wheelModal = document.getElementById('meet-orgs-modal');
+      const wheelModalClose = document.getElementById('modal-close');
       const canvas = document.getElementById('wheel-canvas');
       const ctx = canvas.getContext('2d');
       const spinBtn = document.getElementById('spin-button');
-      const respinBtn = document.getElementById('respin-btn');
 
-      // Popup Elements
+      // Landed Card Popup Modal Elements
+      const cardPopupModal = document.getElementById('card-popup-modal');
+      const popupCloseBtn = document.getElementById('popup-close-btn');
+      const respinBtn = document.getElementById('respin-btn');
       const popupImgContainer = document.getElementById('popup-image-container');
       const popupCategoryBadge = document.getElementById('popup-category-badge');
       const popupLocationBadge = document.getElementById('popup-location-badge');
       const popupTitle = document.getElementById('popup-title');
       const popupDesc = document.getElementById('popup-desc');
       const popupDonateLink = document.getElementById('popup-donate-link');
-      const resultBannerText = document.getElementById('result-banner-text');
+      const popupWinBanner = document.getElementById('popup-win-banner');
 
-      // Directory Elements
-      const rosterGrid = document.getElementById('roster-grid');
-      const rosterSearch = document.getElementById('roster-search');
-      const rosterCounter = document.getElementById('roster-counter');
-
-      // Modal Controls
-      function openModal() {
-        modal.classList.add('open');
+      // Wheel Modal Controls
+      function openWheelModal() {
+        wheelModal.classList.add('open');
         document.body.style.overflow = 'hidden';
         drawWheel();
       }
 
-      function closeModal() {
-        modal.classList.remove('open');
-        document.body.style.overflow = '';
+      function closeWheelModal() {
+        wheelModal.classList.remove('open');
+        if (!cardPopupModal.classList.contains('open')) {
+          document.body.style.overflow = '';
+        }
       }
 
-      meetBtn.addEventListener('click', openModal);
-      modalClose.addEventListener('click', closeModal);
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
+      meetBtn.addEventListener('click', openWheelModal);
+      wheelModalClose.addEventListener('click', closeWheelModal);
+      wheelModal.addEventListener('click', (e) => {
+        if (e.target === wheelModal) closeWheelModal();
       });
+
+      // Card Popup Modal Controls
+      function openCardPopup(org) {
+        // Set content
+        popupWinBanner.textContent = '🎉 YOU LANDED ON: ' + org.title.toUpperCase();
+
+        popupImgContainer.innerHTML = '';
+        if (org.image && org.image.trim() !== '') {
+          const img = document.createElement('img');
+          img.src = org.image;
+          img.alt = org.title;
+          img.onerror = () => {
+            renderFallbackArtwork(popupImgContainer, org);
+          };
+          popupImgContainer.appendChild(img);
+        } else {
+          renderFallbackArtwork(popupImgContainer, org);
+        }
+
+        popupCategoryBadge.textContent = org.categoryLabel;
+        popupCategoryBadge.style.backgroundColor = org.color;
+        popupLocationBadge.textContent = org.location;
+
+        popupTitle.textContent = org.title;
+        popupDesc.textContent = org.desc;
+        popupDonateLink.href = org.link;
+
+        // Open popup
+        cardPopupModal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeCardPopup() {
+        cardPopupModal.classList.remove('open');
+        if (!wheelModal.classList.contains('open')) {
+          document.body.style.overflow = '';
+        }
+      }
+
+      popupCloseBtn.addEventListener('click', closeCardPopup);
+      cardPopupModal.addEventListener('click', (e) => {
+        if (e.target === cardPopupModal) closeCardPopup();
+      });
+
+      // Escape key closes open modal (card popup first, then wheel)
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
-      });
-
-      // Tab Switching
-      tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          tabBtns.forEach(b => b.classList.remove('active'));
-          tabContents.forEach(c => c.classList.remove('active'));
-          btn.classList.add('active');
-          const targetTab = document.getElementById('tab-' + btn.getAttribute('data-tab'));
-          if (targetTab) targetTab.classList.add('active');
-          if (btn.getAttribute('data-tab') === 'wheel') {
-            drawWheel();
+        if (e.key === 'Escape') {
+          if (cardPopupModal.classList.contains('open')) {
+            closeCardPopup();
+          } else if (wheelModal.classList.contains('open')) {
+            closeWheelModal();
           }
-        });
+        }
       });
 
-      // ================= WHEEL SETUP & DRAWING =================
+      function renderFallbackArtwork(container, org) {
+        const categoryEmojis = {
+          prochoice: '✊',
+          dv: '🛡️',
+          homeless: '🏠',
+          youth: '🎓',
+          humanitarian: '🌍',
+          political: '🗳️',
+          ecological: '🌲'
+        };
+        const emoji = categoryEmojis[org.category] || '❤️';
+
+        container.innerHTML = `
+          <div class="popup-org-fallback-art" style="background-color: ${org.color};">
+            <div class="fallback-org-symbol">${emoji}</div>
+            <div class="fallback-org-title">${org.location}</div>
+          </div>
+        `;
+      }
+
+      // ================= WHEEL SETUP & CANVAS DRAWING =================
       const numSegments = ALL_ORGS.length;
       const arc = (2 * Math.PI) / numSegments;
       let currentAngle = 0;
       let isSpinning = false;
-      let selectedOrg = ALL_ORGS[0];
 
       const segmentColors = [
         '#FF90E8', '#FFC900', '#22CCEE', '#32CD32', '#FF6B35', '#D8B4E2', '#FF5E7E',
@@ -2085,7 +1989,7 @@
           ctx.strokeStyle = '#000000';
           ctx.stroke();
 
-          // Text label on segment
+          // Segment label
           ctx.save();
           ctx.translate(center, center);
           ctx.rotate(angle + arc / 2);
@@ -2103,7 +2007,7 @@
 
         // Center hub
         ctx.beginPath();
-        ctx.arc(center, center, 36, 0, 2 * Math.PI);
+        ctx.arc(center, center, 38, 0, 2 * Math.PI);
         ctx.fillStyle = '#000000';
         ctx.fill();
         ctx.lineWidth = 4;
@@ -2116,61 +2020,11 @@
         ctx.fill();
       }
 
-      function renderOrgDetails(org, isWinner = false) {
-        selectedOrg = org;
-        if (isWinner) {
-          resultBannerText.textContent = '🎉 WINNER: ' + org.title;
-          resultBannerText.style.background = 'var(--purple)';
-        }
-
-        popupImgContainer.innerHTML = '';
-        if (org.image && org.image.trim() !== '') {
-          const img = document.createElement('img');
-          img.src = org.image;
-          img.alt = org.title;
-          img.onerror = () => {
-            renderFallbackArtwork(popupImgContainer, org);
-          };
-          popupImgContainer.appendChild(img);
-        } else {
-          renderFallbackArtwork(popupImgContainer, org);
-        }
-
-        popupCategoryBadge.textContent = org.categoryLabel;
-        popupCategoryBadge.style.backgroundColor = org.color;
-        popupLocationBadge.textContent = org.location;
-
-        popupTitle.textContent = org.title;
-        popupDesc.textContent = org.desc;
-        popupDonateLink.href = org.link;
-      }
-
-      function renderFallbackArtwork(container, org) {
-        const categoryEmojis = {
-          prochoice: '✊',
-          dv: '🛡️',
-          homeless: '🏠',
-          youth: '🎓',
-          humanitarian: '🌍',
-          political: '🗳️',
-          ecological: '🌲'
-        };
-        const emoji = categoryEmojis[org.category] || '❤️';
-
-        container.innerHTML = `
-          <div class="popup-org-fallback-art" style="background-color: ${org.color};">
-            <div class="fallback-org-symbol">${emoji}</div>
-            <div class="fallback-org-title">${org.location}</div>
-          </div>
-        `;
-      }
-
       // ================= SPIN WHEEL LOGIC =================
       function spinWheel() {
         if (isSpinning) return;
         isSpinning = true;
         spinBtn.disabled = true;
-        respinBtn.disabled = true;
         spinBtn.textContent = 'SPINNING THE CAUSES...';
 
         const targetIndex = Math.floor(Math.random() * numSegments);
@@ -2187,7 +2041,7 @@
         const finalAngle = targetCurrentAngle + (extraRotations * 2 * Math.PI);
 
         const startTime = performance.now();
-        const duration = 4000;
+        const duration = 3800; // 3.8s duration
         const initialAngle = currentAngle;
 
         function easeOutCubic(t) {
@@ -2207,9 +2061,9 @@
           } else {
             isSpinning = false;
             spinBtn.disabled = false;
-            respinBtn.disabled = false;
-            spinBtn.textContent = '🟢 SPIN AGAIN';
-            renderOrgDetails(ALL_ORGS[targetIndex], true);
+            spinBtn.textContent = '🎲 SPIN AGAIN';
+            // POP UP THE CARD IT LANDS ON!
+            openCardPopup(ALL_ORGS[targetIndex]);
           }
         }
 
@@ -2217,69 +2071,16 @@
       }
 
       spinBtn.addEventListener('click', spinWheel);
-      respinBtn.addEventListener('click', spinWheel);
-
-      // ================= DIRECTORY TAB POPULATION =================
-      function renderDirectory(items) {
-        rosterGrid.innerHTML = '';
-        rosterCounter.textContent = `Showing ${items.length} Organization${items.length === 1 ? '' : 's'}`;
-
-        items.forEach(org => {
-          const card = document.createElement('div');
-          card.className = 'roster-card';
-
-          const cardImg = document.createElement('div');
-          cardImg.className = 'roster-card-image';
-          if (org.image && org.image.trim() !== '') {
-            const img = document.createElement('img');
-            img.src = org.image;
-            img.alt = org.title;
-            img.onerror = () => {
-              cardImg.innerHTML = `<span style="font-weight:900; font-size:1.5rem; color:#000;">${org.location}</span>`;
-            };
-            cardImg.appendChild(img);
-          } else {
-            cardImg.innerHTML = `<span style="font-weight:900; font-size:1.5rem; color:#000;">${org.location}</span>`;
-          }
-
-          card.innerHTML = `
-            <div>
-              <div class="card-top" style="margin-bottom:0.75rem;">
-                <span class="card-category" style="background:${org.color};">${org.categoryLabel}</span>
-                <span class="location-tag">${org.location}</span>
-              </div>
-              <h3 class="roster-card-title">${org.title}</h3>
-              <p class="roster-card-desc">${org.desc}</p>
-            </div>
-            <a href="${org.link}" target="_blank" rel="noopener noreferrer" class="roster-donate-btn">
-              DONATE DIRECTLY &rarr;
-            </a>
-          `;
-
-          const cardInnerDiv = card.querySelector('div');
-          cardInnerDiv.insertBefore(cardImg, cardInnerDiv.querySelector('.roster-card-title'));
-
-          rosterGrid.appendChild(card);
-        });
-      }
-
-      rosterSearch.addEventListener('input', (e) => {
-        const q = e.target.value.toLowerCase().trim();
-        const filtered = ALL_ORGS.filter(org => {
-          return org.title.toLowerCase().includes(q) ||
-                 org.desc.toLowerCase().includes(q) ||
-                 org.location.toLowerCase().includes(q) ||
-                 org.categoryLabel.toLowerCase().includes(q);
-        });
-        renderDirectory(filtered);
+      
+      // Respin button from popup card: closes popup and starts spin
+      respinBtn.addEventListener('click', () => {
+        closeCardPopup();
+        spinWheel();
       });
 
-      // Initialize
+      // Initial wheel draw
       drawWheel();
-      renderOrgDetails(ALL_ORGS[0]);
-      renderDirectory(ALL_ORGS);
     });
   </script>
-
 </body>
 </html>

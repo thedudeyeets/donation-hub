@@ -1,11 +1,23 @@
 # helpfor.us — Curated Donation Hub
 
 > **A curated, zero-friction resource hub for urgent mutual aid, emergency relief, bodily autonomy, domestic violence survivor support, homeless shelter, ecological defense, and youth pathways.**  
-> Built with raw, hand-crafted neobrutalist web design. No standard CSS frameworks, no corporate charity fluff—just verified causes with direct action donation links.
+> Built with raw, hand-crafted neobrutalist web design. No standard CSS frameworks, no corporate charity fluff—just verified causes with direct action donation links and an interactive **"Meet The Orgs"** spin wheel.
 
 * **Live Site / Local File:** [`index.html`](index.html)
 * **Maintained By:** [Isaac McGinnis](https://isaacmcginnis.com)
-* **Last Updated:** October 18, 2026
+* **Last Updated:** October 19, 2026
+
+---
+
+## ⚡ Interactive Features
+
+* **Sticky "Meet The Orgs" Button:** Fixed to the bottom-right corner of the page with high-contrast neobrutalist styling, physical press physics, and an animated star icon.
+* **Neobrutalist Spin Wheel:** 
+  * Click to open a full modal containing an HTML5 Canvas-rendered, mechanical roulette wheel with all 29 causes divided into colored segments.
+  * Clicking **"SPIN THE WHEEL NOW"** triggers an organic cubic-eased physical spin that randomly selects a vetted organization.
+  * Displays the selected organization's photo/media, category badge, geographic focus, detailed description, and a direct donation action button.
+  * Includes a **"Spin Again"** button for immediate continuous exploration.
+* **All 29 Causes Directory:** A secondary tab inside the modal providing a searchable, filterable grid of all 29 organizations with photography, category tags, descriptions, and direct links.
 
 ---
 
@@ -120,7 +132,10 @@ Every single organization listed here has been independently verified with activ
 
 * **Design Aesthetic:** Raw Neobrutalism (Space Grotesk typography, off-white background `#f4f4f0`, thick `4px solid black` borders, and unblurred `8px 8px 0 #000` drop-shadows).
 * **Interactivity:** Physical mechanical button press simulation (`translate(4px, 4px)` on hover and `translate(8px, 8px)` on active click with snappy zero-easing).
-* **Vanilla JavaScript:** Fast client-side category filtering (`ALL`, `PRO-CHOICE & REPRODUCTIVE`, `DOMESTIC VIOLENCE & WOMEN`, `HOUSING & HOMELESSNESS`, `YOUTH & LOCAL`, `HUMANITARIAN`, `POLITICAL`, `ECOLOGICAL`) with live count calculations.
+* **Vanilla JavaScript:** 
+  * Fast client-side category filtering with live count calculations.
+  * Canvas-rendered spin wheel with random selection physics, easing, and instant card population.
+  * Real-time search filter for the 29-organization directory modal.
 * **Zero Dependencies:** Pure HTML5, CSS3, and vanilla JS contained in a single responsive file.
 
 ---
@@ -128,4 +143,4 @@ Every single organization listed here has been independently verified with activ
 ## Author & Verification
 
 Curated and built by **[Isaac](https://isaacmcginnis.com)**.  
-*Last Verification Check: October 18, 2026.*
+*Last Verification Check: October 19, 2026.*

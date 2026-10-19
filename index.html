@@ -398,7 +398,595 @@
         grid-template-columns: 1fr;
       }
     }
-  </style>
+  
+    /* STICKY MEET THE ORGS BUTTON */
+    .sticky-meet-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 1000;
+      background: var(--yellow);
+      color: var(--black);
+      border: var(--border-thick);
+      box-shadow: 6px 6px 0 var(--black);
+      font-family: inherit;
+      font-size: 1.2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 1.1rem 1.6rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      letter-spacing: 0.03em;
+      transition: none;
+    }
+
+    .sticky-meet-btn:hover {
+      background: var(--pink);
+      transform: translate(3px, 3px);
+      box-shadow: 3px 3px 0 var(--black);
+    }
+
+    .sticky-meet-btn:active {
+      transform: translate(6px, 6px);
+      box-shadow: 0 0 0 var(--black);
+    }
+
+    .sticky-meet-btn .sparkle {
+      font-size: 1.4rem;
+      display: inline-block;
+      animation: spin-pulse 2s infinite linear;
+    }
+
+    @keyframes spin-pulse {
+      0% { transform: rotate(0deg) scale(1); }
+      50% { transform: rotate(180deg) scale(1.2); }
+      100% { transform: rotate(360deg) scale(1); }
+    }
+
+    /* MODAL BACKDROP */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.78);
+      z-index: 2000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      backdrop-filter: blur(2px);
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    /* MODAL WINDOW */
+    .modal-window {
+      background: var(--bg);
+      border: var(--border-thick);
+      box-shadow: 12px 12px 0 var(--black);
+      width: 100%;
+      max-width: 1100px;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* MODAL HEADER */
+    .modal-header {
+      background: var(--black);
+      color: #fff;
+      padding: 1.25rem 1.75rem;
+      border-bottom: var(--border-thick);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .modal-header h2 {
+      font-size: clamp(1.3rem, 2.8vw, 2rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+    }
+
+    .modal-close-btn {
+      background: var(--pink);
+      color: var(--black);
+      border: 3px solid var(--black);
+      font-family: inherit;
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 1;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 3px 3px 0 #fff;
+      transition: none;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--yellow);
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 #fff;
+    }
+
+    .modal-close-btn:active {
+      transform: translate(3px, 3px);
+      box-shadow: 0 0 0 #fff;
+    }
+
+    /* MODAL NAV TABS */
+    .modal-tabs {
+      display: flex;
+      background: #fff;
+      border-bottom: var(--border-thick);
+      flex-shrink: 0;
+      overflow-x: auto;
+    }
+
+    .modal-tab-btn {
+      background: #fff;
+      color: var(--black);
+      border: none;
+      border-right: var(--border-thick);
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 1rem 1.75rem;
+      cursor: pointer;
+      letter-spacing: 0.04em;
+      transition: none;
+      white-space: nowrap;
+    }
+
+    .modal-tab-btn:hover {
+      background: var(--cyan);
+    }
+
+    .modal-tab-btn.active {
+      background: var(--lime);
+      color: var(--black);
+      box-shadow: inset 0 -4px 0 var(--black);
+    }
+
+    /* MODAL BODY CONTAINER */
+    .modal-body {
+      padding: 2rem;
+      overflow-y: auto;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* ================= WHEEL TAB STYLING ================= */
+    .wheel-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 2.25rem;
+      align-items: start;
+    }
+
+    .wheel-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      padding: 1.75rem 1.25rem;
+      position: relative;
+    }
+
+    .wheel-canvas-container {
+      position: relative;
+      width: 320px;
+      height: 320px;
+      max-width: 100%;
+      margin: 0.75rem 0 1rem;
+    }
+
+    #wheel-canvas {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: var(--border-thick);
+      box-shadow: 5px 5px 0 var(--black);
+      display: block;
+      background: #fff;
+    }
+
+    .wheel-pointer {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 18px solid transparent;
+      border-right: 18px solid transparent;
+      border-top: 30px solid var(--black);
+      z-index: 10;
+      filter: drop-shadow(0 3px 0 var(--pink));
+    }
+
+    .spin-trigger-btn {
+      width: 100%;
+      font-family: inherit;
+      font-size: 1.35rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 1.1rem;
+      background: var(--lime);
+      color: var(--black);
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      cursor: pointer;
+      transition: none;
+      letter-spacing: 0.05em;
+    }
+
+    .spin-trigger-btn:hover:not(:disabled) {
+      background: var(--yellow);
+      transform: translate(3px, 3px);
+      box-shadow: 5px 5px 0 var(--black);
+    }
+
+    .spin-trigger-btn:active:not(:disabled) {
+      transform: translate(8px, 8px);
+      box-shadow: var(--shadow-pressed);
+    }
+
+    .spin-trigger-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      box-shadow: 3px 3px 0 var(--black);
+      transform: translate(3px, 3px);
+    }
+
+    .wheel-helper-text {
+      margin-top: 0.85rem;
+      font-size: 0.85rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      background: var(--yellow);
+      border: 2px solid var(--black);
+      padding: 0.3rem 0.6rem;
+      text-align: center;
+    }
+
+    /* RESULT CARD SECTION */
+    .wheel-result-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .result-banner {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--black);
+      color: #fff;
+      font-size: 0.9rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 0.35rem 0.8rem;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+
+    .popup-org-card {
+      background: #fff;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      display: flex;
+      flex-direction: column;
+      padding: 1.75rem;
+      position: relative;
+      flex-grow: 1;
+    }
+
+    .popup-org-image-wrapper {
+      width: 100%;
+      height: 200px;
+      border: var(--border-thick);
+      background: #f0f0f0;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup-org-image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .popup-org-fallback-art {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .fallback-org-symbol {
+      font-size: 3.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .fallback-org-title {
+      font-size: 1.05rem;
+      font-weight: 900;
+      background: var(--black);
+      color: #fff;
+      padding: 0.25rem 0.6rem;
+      text-transform: uppercase;
+    }
+
+    .popup-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+      margin-bottom: 0.85rem;
+      flex-wrap: wrap;
+    }
+
+    .popup-category-badge {
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border: 3px solid var(--black);
+      letter-spacing: 0.05em;
+    }
+
+    .popup-location-badge {
+      font-size: 0.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      background: var(--black);
+      color: #fff;
+    }
+
+    .popup-card-title {
+      font-size: 1.65rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.15;
+      margin-bottom: 0.85rem;
+    }
+
+    .popup-card-desc {
+      font-size: 1.02rem;
+      font-weight: 700;
+      line-height: 1.45;
+      color: #222;
+      margin-bottom: 1.75rem;
+      flex-grow: 1;
+    }
+
+    .popup-action-row {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .popup-donate-btn {
+      flex: 1;
+      min-width: 180px;
+      text-align: center;
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 1.2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 1rem;
+      background: var(--purple);
+      color: #fff;
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      cursor: pointer;
+      transition: none;
+      letter-spacing: 0.04em;
+    }
+
+    .popup-donate-btn:hover {
+      background: var(--black);
+      color: #fff;
+      transform: translate(4px, 4px);
+      box-shadow: 4px 4px 0 var(--black);
+    }
+
+    .popup-donate-btn:active {
+      transform: translate(8px, 8px);
+      box-shadow: var(--shadow-pressed);
+    }
+
+    .spin-again-btn {
+      font-family: inherit;
+      font-size: 1.1rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 1rem 1.4rem;
+      background: var(--cyan);
+      color: var(--black);
+      border: var(--border-thick);
+      box-shadow: var(--shadow-hard);
+      cursor: pointer;
+      transition: none;
+    }
+
+    .spin-again-btn:hover {
+      background: var(--pink);
+      transform: translate(3px, 3px);
+      box-shadow: 5px 5px 0 var(--black);
+    }
+
+    .spin-again-btn:active {
+      transform: translate(8px, 8px);
+      box-shadow: var(--shadow-pressed);
+    }
+
+    /* ================= DIRECTORY TAB STYLING ================= */
+    .roster-controls {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .roster-search-input {
+      flex: 1;
+      min-width: 260px;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 0.85rem 1.2rem;
+      border: var(--border-thick);
+      box-shadow: 4px 4px 0 var(--black);
+      outline: none;
+      background: #fff;
+    }
+
+    .roster-search-input:focus {
+      border-color: var(--black);
+      box-shadow: 6px 6px 0 var(--black);
+    }
+
+    .roster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.75rem;
+    }
+
+    .roster-card {
+      background: #fff;
+      border: var(--border-thick);
+      box-shadow: 6px 6px 0 var(--black);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem;
+      transition: none;
+    }
+
+    .roster-card:hover {
+      transform: translate(2px, 2px);
+      box-shadow: 4px 4px 0 var(--black);
+    }
+
+    .roster-card-image {
+      width: 100%;
+      height: 140px;
+      border: 3px solid var(--black);
+      margin-bottom: 1rem;
+      overflow: hidden;
+      background: #eee;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .roster-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .roster-card-title {
+      font-size: 1.35rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+
+    .roster-card-desc {
+      font-size: 0.92rem;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 1.25rem;
+      color: #333;
+      flex-grow: 1;
+    }
+
+    .roster-donate-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 0.85rem;
+      background: var(--lime);
+      color: var(--black);
+      border: 3px solid var(--black);
+      box-shadow: 4px 4px 0 var(--black);
+      transition: none;
+    }
+
+    .roster-donate-btn:hover {
+      background: var(--yellow);
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--black);
+    }
+
+    .roster-donate-btn:active {
+      transform: translate(4px, 4px);
+      box-shadow: 0 0 0 var(--black);
+    }
+
+    @media (max-width: 850px) {
+      .wheel-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      .modal-window {
+        max-height: 95vh;
+      }
+      .modal-body {
+        padding: 1.25rem;
+      }
+      .sticky-meet-btn {
+        bottom: 1.25rem;
+        right: 1.25rem;
+        padding: 0.9rem 1.25rem;
+        font-size: 1rem;
+      }
+    }
+</style>
 </head>
 <body>
   <div class="container">
@@ -947,6 +1535,92 @@
     </footer>
   </div>
 
+  <!-- STICKY BUTTON: MEET THE ORGS -->
+  <button id="meet-orgs-trigger" class="sticky-meet-btn" aria-label="Open Meet The Organizations Hub">
+    <span class="sparkle">&#9733;</span>
+    <span>Meet The Orgs</span>
+    <span style="font-size:1.3rem;">&rarr;</span>
+  </button>
+
+  <!-- NEOBRUTALIST MODAL: MEET THE ORGS & SPIN WHEEL -->
+  <div id="meet-orgs-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+    <div class="modal-window">
+      <!-- HEADER -->
+      <div class="modal-header">
+        <h2 id="modal-headline">&#9889; MEET THE ORGANIZATIONS &bull; SPIN THE WHEEL</h2>
+        <button id="modal-close" class="modal-close-btn" aria-label="Close dialog">&times;</button>
+      </div>
+
+      <!-- TABS -->
+      <div class="modal-tabs">
+        <button class="modal-tab-btn active" data-tab="wheel">&#127920; Spin The Wheel</button>
+        <button class="modal-tab-btn" data-tab="directory">&#128218; All 29 Causes Directory</button>
+      </div>
+
+      <!-- BODY -->
+      <div class="modal-body">
+        <!-- TAB 1: WHEEL -->
+        <div id="tab-wheel" class="tab-content active">
+          <div class="wheel-layout">
+            <!-- WHEEL DISPLAY & CONTROLS -->
+            <div class="wheel-section">
+              <span class="badge-top" style="margin-bottom:0.5rem; background:var(--black); color:#fff;">Random Direct Impact</span>
+              <div class="wheel-canvas-container">
+                <div class="wheel-pointer"></div>
+                <canvas id="wheel-canvas" width="600" height="600"></canvas>
+              </div>
+              <button id="spin-button" class="spin-trigger-btn">&#127922; SPIN THE WHEEL NOW</button>
+              <div class="wheel-helper-text">Click spin to randomly pick a vetted cause!</div>
+            </div>
+
+            <!-- RESULT DETAILS CARD -->
+            <div class="wheel-result-container">
+              <div class="result-banner" id="result-banner-text">Selected Cause Details</div>
+              <div class="popup-org-card" id="popup-org-card">
+                <!-- Org Image / Fallback -->
+                <div class="popup-org-image-wrapper" id="popup-image-container">
+                  <!-- Dynamically inserted image or graphic -->
+                </div>
+
+                <!-- Category & Location -->
+                <div class="popup-card-header">
+                  <span class="popup-category-badge" id="popup-category-badge">Category</span>
+                  <span class="popup-location-badge" id="popup-location-badge">Location</span>
+                </div>
+
+                <!-- Title & Description -->
+                <h3 class="popup-card-title" id="popup-title">Spin to reveal an organization</h3>
+                <p class="popup-card-desc" id="popup-desc">
+                  Hit the spin button to let fate direct your support. The wheel will land on one of the 29 verified mutual aid, direct action, youth, housing, reproductive rights, or ecological funds.
+                </p>
+
+                <!-- Action Button Row -->
+                <div class="popup-action-row">
+                  <a href="#" target="_blank" rel="noopener noreferrer" class="popup-donate-btn" id="popup-donate-link">
+                    DONATE DIRECTLY &rarr;
+                  </a>
+                  <button class="spin-again-btn" id="respin-btn">&#128260; Spin Again</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: DIRECTORY OF ALL 29 ORGS -->
+        <div id="tab-directory" class="tab-content">
+          <div class="roster-controls">
+            <input type="text" id="roster-search" class="roster-search-input" placeholder="Search by name, location, or cause keyword..." />
+            <div class="count-indicator" id="roster-counter">Showing 29 Organizations</div>
+          </div>
+          <div class="roster-grid" id="roster-grid">
+            <!-- Dynamically populated roster cards -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- JAVASCRIPT FILTERING FUNCTIONALITY -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -987,5 +1661,625 @@
       updateGrid('all');
     });
   </script>
+
+  <!-- ORGS DATASET & INTERACTIVE SPIN WHEEL SCRIPT -->
+  <script>
+    const ALL_ORGS = [
+  {
+    "id": 0,
+    "title": "National Network of Abortion Funds (NNAF)",
+    "category": "prochoice",
+    "categoryLabel": "Pro-Choice & Reproductive",
+    "color": "#FF5E7E",
+    "desc": "Direct financial and logistical support (travel, lodging, child care, and procedure costs) removing systemic and economic barriers for people accessing abortion care nationwide.",
+    "link": "https://abortionfunds.org/",
+    "location": "National",
+    "image": "https://abortionfunds.org/wp-content/uploads/2023/10/NNAF-logo-gold-stacked.png"
+  },
+  {
+    "id": 1,
+    "title": "Center for Reproductive Rights",
+    "category": "prochoice",
+    "categoryLabel": "Pro-Choice & Reproductive",
+    "color": "#FF5E7E",
+    "desc": "Global legal advocacy and human rights litigation defending reproductive freedom, bodily autonomy, and maternal healthcare access in high-stakes courtrooms.",
+    "link": "https://reproductiverights.org/",
+    "location": "Legal Defense",
+    "image": "https://reproductiverights.org/wp-content/uploads/2025/10/CRR-Social-Share@2x.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Planned Parenthood",
+    "category": "prochoice",
+    "categoryLabel": "Pro-Choice & Reproductive",
+    "color": "#FF5E7E",
+    "desc": "Delivers vital reproductive healthcare, cancer screenings, birth control, and life-saving family planning services while leading fierce advocacy for healthcare access.",
+    "link": "https://www.plannedparenthood.org/",
+    "location": "Healthcare &amp; Advocacy",
+    "image": "https://www.plannedparenthood.org/uploads/filer_public_thumbnails/filer_public/b9/ed/b9eddaf2-608a-4935-8c70-fc98afd54562/find-health-center.jpg__1200x1200_q65_subsampling-2.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Yellowhammer Fund",
+    "category": "prochoice",
+    "categoryLabel": "Pro-Choice & Reproductive",
+    "color": "#FF5E7E",
+    "desc": "Frontline reproductive justice organization providing financial aid, emergency contraception, and pregnancy support for individuals across Alabama and the Deep South.",
+    "link": "https://www.yellowhammerfund.org/",
+    "location": "Deep South",
+    "image": "https://www.yellowhammerfund.org/wp-content/uploads/2020/01/frontpage.png"
+  },
+  {
+    "id": 4,
+    "title": "National Domestic Violence Hotline",
+    "category": "dv",
+    "categoryLabel": "Domestic Violence & Women",
+    "color": "#D8B4E2",
+    "desc": "24/7/365 confidential lifeline providing essential crisis intervention, safety planning, legal navigation, and emergency shelter referrals for survivors of relationship abuse.",
+    "link": "https://www.thehotline.org/",
+    "location": "National 24/7",
+    "image": "https://www.thehotline.org/wp-content/uploads/media/2020/10/Hotline-social-share-english-b.jpg"
+  },
+  {
+    "id": 5,
+    "title": "YWCA Greater Harrisburg",
+    "category": "dv",
+    "categoryLabel": "Domestic Violence & Women",
+    "color": "#D8B4E2",
+    "desc": "Provides emergency shelter, crisis hotlines, trauma counseling, and legal advocacy for women and children surviving domestic violence and sexual assault in Central PA.",
+    "link": "https://www.ywcahbg.org/",
+    "location": "Harrisburg, PA",
+    "image": ""
+  },
+  {
+    "id": 6,
+    "title": "NNEDV",
+    "category": "dv",
+    "categoryLabel": "Domestic Violence & Women",
+    "color": "#D8B4E2",
+    "desc": "The leading national voice representing 56 state and territorial domestic violence coalitions, championing survivor protection legislation, tech safety, and housing independence.",
+    "link": "https://nnedv.org/",
+    "location": "Policy &amp; Resources",
+    "image": ""
+  },
+  {
+    "id": 7,
+    "title": "YW Boston",
+    "category": "dv",
+    "categoryLabel": "Domestic Violence & Women",
+    "color": "#D8B4E2",
+    "desc": "Dedicated to eliminating racism, empowering women, and promoting safety and equity through youth leadership programs, community advocacy, and racial justice initiatives.",
+    "link": "https://www.ywboston.org/",
+    "location": "Boston, MA",
+    "image": "https://www.ywboston.org/wp-content/uploads/2024/12/yw-social-hero-1.png"
+  },
+  {
+    "id": 8,
+    "title": "Rosie's Place",
+    "category": "homeless",
+    "categoryLabel": "Housing & Homelessness",
+    "color": "#FF6B35",
+    "desc": "The first women's shelter in the United States, providing a safe haven, meals, emergency housing, legal assistance, and multi-service advocacy for poor and homeless women.",
+    "link": "https://www.rosiesplace.org/",
+    "location": "Boston, MA",
+    "image": ""
+  },
+  {
+    "id": 9,
+    "title": "Pine Street Inn",
+    "category": "homeless",
+    "categoryLabel": "Housing & Homelessness",
+    "color": "#FF6B35",
+    "desc": "New England's largest provider of emergency street outreach, emergency shelters, job training, and permanent supportive housing helping individuals exit homelessness.",
+    "link": "https://www.pinestreetinn.org/",
+    "location": "Boston, MA",
+    "image": "https://www.pinestreetinn.org/wp-content/uploads/900Press_DorchesterReporter_spotlight.png"
+  },
+  {
+    "id": 10,
+    "title": "Bethesda Mission",
+    "category": "homeless",
+    "categoryLabel": "Housing & Homelessness",
+    "color": "#FF6B35",
+    "desc": "Frontline rescue mission delivering emergency shelter beds, thousands of warm meals, addiction recovery programs, and transitional housing for unhoused men, women, and families in Harrisburg.",
+    "link": "https://www.bethesdamission.org/",
+    "location": "Harrisburg, PA",
+    "image": ""
+  },
+  {
+    "id": 11,
+    "title": "Covenant House",
+    "category": "homeless",
+    "categoryLabel": "Housing & Homelessness",
+    "color": "#FF6B35",
+    "desc": "Provides 24/7 crisis care, immediate shelter, medical clinics, and job readiness programs for youth facing homelessness, human trafficking, and severe housing instability.",
+    "link": "https://www.covenanthouse.org/",
+    "location": "Homeless Youth",
+    "image": "https://www.covenanthouse.org/sites/default/files/styles/1200x630/public/2024-10/young-man-test-b-topaz.jpg.webp?itok=zIbg4HzO"
+  },
+  {
+    "id": 12,
+    "title": "National Alliance to End Homelessness",
+    "category": "homeless",
+    "categoryLabel": "Housing & Homelessness",
+    "color": "#FF6B35",
+    "desc": "A nonpartisan organization committed to preventing and ending homelessness through research, evidence-based housing solutions, and federal policy advocacy.",
+    "link": "https://endhomelessness.org/",
+    "location": "National Policy",
+    "image": "https://endhomelessness.org/wp-content/uploads/2014/01/Frame-222.png"
+  },
+  {
+    "id": 13,
+    "title": "Cocoa Packs (Hershey)",
+    "category": "youth",
+    "categoryLabel": "Youth & Local",
+    "color": "#FFD166",
+    "desc": "Hershey-based 501(c)(3) providing targeted weekend food security, clothing closet essentials, and wraparound educational support to thousands of children in Derry Township and Central PA.",
+    "link": "https://cocoapacks.org/support/",
+    "location": "Hershey, PA",
+    "image": ""
+  },
+  {
+    "id": 14,
+    "title": "Gemma's Angels",
+    "category": "youth",
+    "categoryLabel": "Youth & Local",
+    "color": "#FFD166",
+    "desc": "Hershey grassroots charity rescuing and distributing fresh, wholesome produce and nutrition directly to homeless shelters, food pantries, and impoverished children across Lebanon and Dauphin counties.",
+    "link": "https://www.gemmasangels.org/support-our-cause",
+    "location": "Hershey / Central PA",
+    "image": "http://static1.squarespace.com/static/55738f42e4b0c5ac0274fb9e/t/5577df78e4b07cb18d9febb4/1777748784484/gemmas-angels_500px.jpg?format=1500w"
+  },
+  {
+    "id": 15,
+    "title": "The Joshua Group",
+    "category": "youth",
+    "categoryLabel": "Youth & Local",
+    "color": "#FFD166",
+    "desc": "Harrisburg neighborhood pillar offering comprehensive after-school academic programs, positive mentoring, scholarships, and vocational development for at-risk urban youth in Allison Hill.",
+    "link": "https://www.joshuagroup.org/",
+    "location": "Harrisburg, PA",
+    "image": "http://static1.squarespace.com/static/57182083356fb0279226510e/t/608acb208fc0cf303bb23580/1619708704320/Joshua-Group-logo-hiRes-transBKGRND.png?format=1500w"
+  },
+  {
+    "id": 16,
+    "title": "Boys & Girls Club of Harrisburg",
+    "category": "youth",
+    "categoryLabel": "Youth & Local",
+    "color": "#FFD166",
+    "desc": "Empowers youth in the Greater Harrisburg area through safe spaces, academic success coaching, leadership labs, and healthy lifestyle programs for children ages 6 to 18.",
+    "link": "https://www.bgchbg.org/",
+    "location": "Harrisburg, PA",
+    "image": ""
+  },
+  {
+    "id": 17,
+    "title": "Teen Empowerment (Boston)",
+    "category": "youth",
+    "categoryLabel": "Youth & Local",
+    "color": "#FFD166",
+    "desc": "Employs youth organizers in Roxbury and Dorchester to lead community peace, systemic reform, violence prevention, and social change projects across Boston neighborhoods.",
+    "link": "https://teenempowerment.org/",
+    "location": "Boston, MA",
+    "image": "http://static1.squarespace.com/static/64426bfdea6ac843d8466bb3/t/6463e96f9971a00737966444/1684269423525/TE-Logo-Horizontal-1080.jpg?format=1500w"
+  },
+  {
+    "id": 18,
+    "title": "YouthBuild Boston",
+    "category": "youth",
+    "categoryLabel": "Youth & Local",
+    "color": "#FFD166",
+    "desc": "Provides underserved Boston youth with hands-on vocational training in construction, sustainable building, and design trades alongside academic credentials and career placements.",
+    "link": "https://www.youthbuildboston.org/",
+    "location": "Boston, MA",
+    "image": "http://static1.squarespace.com/static/67018425064dfc0ead37a734/t/67e419aeebb2ac3e87c64c72/1743002030992/logo+%281%29.png?format=1500w"
+  },
+  {
+    "id": 19,
+    "title": "826 Boston",
+    "category": "youth",
+    "categoryLabel": "Youth & Local",
+    "color": "#FFD166",
+    "desc": "Nonprofit youth writing and tutoring center dedicated to empowering traditionally underserved students ages 6\u201318 in Boston through creative writing, literacy, and book publication.",
+    "link": "https://826boston.org/",
+    "location": "Boston, MA",
+    "image": ""
+  },
+  {
+    "id": 20,
+    "title": "Youth Enrichment Services (YES)",
+    "category": "youth",
+    "categoryLabel": "Youth & Local",
+    "color": "#FFD166",
+    "desc": "Provides Boston urban youth with outdoor recreation, sports equity, leadership coaching, and college preparation through outdoor exploration programs.",
+    "link": "https://yeskids.org/",
+    "location": "Boston, MA",
+    "image": ""
+  },
+  {
+    "id": 21,
+    "title": "The Gaza Fund",
+    "category": "humanitarian",
+    "categoryLabel": "Humanitarian Relief",
+    "color": "#FF90E8",
+    "desc": "Direct emergency relief and mutual aid provided straight to displaced families, urgent medical evacuations, and individuals enduring devastating conditions in Gaza.",
+    "link": "https://thegazafund.com/",
+    "location": "Gaza Relief",
+    "image": "https://i0.wp.com/thegazafund.com/wp-content/uploads/2026/04/IMG_20260323_220510_103.jpg"
+  },
+  {
+    "id": 22,
+    "title": "Palestine Children's Relief Fund",
+    "category": "humanitarian",
+    "categoryLabel": "Humanitarian Relief",
+    "color": "#FF90E8",
+    "desc": "Provides free medical care to injured and ill children who lack access to local healthcare infrastructure, deploying surgical teams and critical pediatric aid.",
+    "link": "https://www.pcrf.net/",
+    "location": "Middle East",
+    "image": "https://www.pcrf.net/cached_uploads/full/og-default.jpg"
+  },
+  {
+    "id": 23,
+    "title": "Doctors Without Borders",
+    "category": "humanitarian",
+    "categoryLabel": "Humanitarian Relief",
+    "color": "#FF90E8",
+    "desc": "Independent, impartial medical humanitarian assistance delivering urgent emergency healthcare and frontline surgical units in over 70 conflict zones and disaster zones.",
+    "link": "https://www.doctorswithoutborders.org/",
+    "location": "Global",
+    "image": "https://www.doctorswithoutborders.org/themes/custom/msf/meta_image.png"
+  },
+  {
+    "id": 24,
+    "title": "World Central Kitchen",
+    "category": "humanitarian",
+    "categoryLabel": "Humanitarian Relief",
+    "color": "#FF90E8",
+    "desc": "Rapid direct action deploying first-responder field kitchens and hot, nutritious meals to communities impacted by humanitarian, climate, and community crises.",
+    "link": "https://wck.org/",
+    "location": "Crisis Feeding",
+    "image": "https://wck.org/wp-content/uploads/2025/10/cb4ed40a-02b5-411c-8d6c-88c3f11ab639_DSC05541.jpg"
+  },
+  {
+    "id": 25,
+    "title": "UNITED24 (Ukraine)",
+    "category": "humanitarian",
+    "categoryLabel": "Humanitarian Relief",
+    "color": "#FF90E8",
+    "desc": "The official global fundraising platform for Ukraine, directing crucial resources toward urgent medical aid, frontline humanitarian assistance, and civic rebuilding.",
+    "link": "https://u24.gov.ua/",
+    "location": "Ukraine",
+    "image": "https://u24.gov.ua/assets/img/meta/og-20220504.jpg"
+  },
+  {
+    "id": 26,
+    "title": "Democratic National Committee / ActBlue",
+    "category": "political",
+    "categoryLabel": "Political Action",
+    "color": "#FFC900",
+    "desc": "Grassroots mobilization and direct political action funding to support progressive candidates, protect ballot access, and drive federal and state legislative advocacy.",
+    "link": "https://secure.actblue.com/donate/dnc-web-donate",
+    "location": "National",
+    "image": "https://secure.actblue.com/x/object/actblue-cyanotypes/replaced_images/socialsharetemplate/255384/e5fcf5a9-c506-42fd-bba5-5e504949b863-Screenshot2026-05-28at7-42923248.png"
+  },
+  {
+    "id": 27,
+    "title": "Rainforest Trust",
+    "category": "ecological",
+    "categoryLabel": "Ecological Defense",
+    "color": "#32CD32",
+    "desc": "Purchases and protects threatened tropical lands and endangered species habitats acre by acre in close partnership with local and indigenous communities worldwide.",
+    "link": "https://www.rainforesttrust.org/",
+    "location": "Conservation",
+    "image": "https://www.rainforesttrust.org/app/uploads/2022/10/burning-amazon-rainforest-shutterstock-min.jpg"
+  },
+  {
+    "id": 28,
+    "title": "Indigenous Environmental Network",
+    "category": "ecological",
+    "categoryLabel": "Ecological Defense",
+    "color": "#32CD32",
+    "desc": "An indigenous grassroots alliance combating environmental injustice, resource contamination, and climate destruction through frontline resistance and tribal sovereignty.",
+    "link": "https://www.ienearth.org/",
+    "location": "Climate Justice",
+    "image": ""
+  }
+];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // DOM Elements
+      const meetBtn = document.getElementById('meet-orgs-trigger');
+      const modal = document.getElementById('meet-orgs-modal');
+      const modalClose = document.getElementById('modal-close');
+      const tabBtns = document.querySelectorAll('.modal-tab-btn');
+      const tabContents = document.querySelectorAll('.tab-content');
+
+      // Wheel Elements
+      const canvas = document.getElementById('wheel-canvas');
+      const ctx = canvas.getContext('2d');
+      const spinBtn = document.getElementById('spin-button');
+      const respinBtn = document.getElementById('respin-btn');
+
+      // Popup Elements
+      const popupImgContainer = document.getElementById('popup-image-container');
+      const popupCategoryBadge = document.getElementById('popup-category-badge');
+      const popupLocationBadge = document.getElementById('popup-location-badge');
+      const popupTitle = document.getElementById('popup-title');
+      const popupDesc = document.getElementById('popup-desc');
+      const popupDonateLink = document.getElementById('popup-donate-link');
+      const resultBannerText = document.getElementById('result-banner-text');
+
+      // Directory Elements
+      const rosterGrid = document.getElementById('roster-grid');
+      const rosterSearch = document.getElementById('roster-search');
+      const rosterCounter = document.getElementById('roster-counter');
+
+      // Modal Controls
+      function openModal() {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        drawWheel();
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+
+      meetBtn.addEventListener('click', openModal);
+      modalClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+
+      // Tab Switching
+      tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabBtns.forEach(b => b.classList.remove('active'));
+          tabContents.forEach(c => c.classList.remove('active'));
+          btn.classList.add('active');
+          const targetTab = document.getElementById('tab-' + btn.getAttribute('data-tab'));
+          if (targetTab) targetTab.classList.add('active');
+          if (btn.getAttribute('data-tab') === 'wheel') {
+            drawWheel();
+          }
+        });
+      });
+
+      // ================= WHEEL SETUP & DRAWING =================
+      const numSegments = ALL_ORGS.length;
+      const arc = (2 * Math.PI) / numSegments;
+      let currentAngle = 0;
+      let isSpinning = false;
+      let selectedOrg = ALL_ORGS[0];
+
+      const segmentColors = [
+        '#FF90E8', '#FFC900', '#22CCEE', '#32CD32', '#FF6B35', '#D8B4E2', '#FF5E7E',
+        '#FFD166', '#06D6A0', '#118AB2', '#EF476F', '#70C1B3', '#F3FFB6', '#E2AFF8',
+        '#FF90E8', '#FFC900', '#22CCEE', '#32CD32', '#FF6B35', '#D8B4E2', '#FF5E7E',
+        '#FFD166', '#06D6A0', '#118AB2', '#EF476F', '#70C1B3', '#F3FFB6', '#E2AFF8',
+        '#FFD166'
+      ];
+
+      function drawWheel() {
+        const width = canvas.width;
+        const height = canvas.height;
+        const radius = width / 2 - 10;
+        const center = width / 2;
+
+        ctx.clearRect(0, 0, width, height);
+
+        for (let i = 0; i < numSegments; i++) {
+          const angle = currentAngle + i * arc;
+          ctx.beginPath();
+          ctx.fillStyle = segmentColors[i % segmentColors.length];
+          ctx.moveTo(center, center);
+          ctx.arc(center, center, radius, angle, angle + arc);
+          ctx.lineTo(center, center);
+          ctx.fill();
+
+          ctx.lineWidth = 4;
+          ctx.strokeStyle = '#000000';
+          ctx.stroke();
+
+          // Text label on segment
+          ctx.save();
+          ctx.translate(center, center);
+          ctx.rotate(angle + arc / 2);
+          ctx.textAlign = 'right';
+          ctx.fillStyle = '#000000';
+          ctx.font = 'bold 15px "Space Grotesk", sans-serif';
+
+          let shortTitle = ALL_ORGS[i].title;
+          if (shortTitle.length > 18) {
+            shortTitle = shortTitle.substring(0, 16) + '..';
+          }
+          ctx.fillText(shortTitle, radius - 20, 5);
+          ctx.restore();
+        }
+
+        // Center hub
+        ctx.beginPath();
+        ctx.arc(center, center, 36, 0, 2 * Math.PI);
+        ctx.fillStyle = '#000000';
+        ctx.fill();
+        ctx.lineWidth = 4;
+        ctx.strokeStyle = '#ffffff';
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.arc(center, center, 14, 0, 2 * Math.PI);
+        ctx.fillStyle = '#FFC900';
+        ctx.fill();
+      }
+
+      function renderOrgDetails(org, isWinner = false) {
+        selectedOrg = org;
+        if (isWinner) {
+          resultBannerText.textContent = '🎉 WINNER: ' + org.title;
+          resultBannerText.style.background = 'var(--purple)';
+        }
+
+        popupImgContainer.innerHTML = '';
+        if (org.image && org.image.trim() !== '') {
+          const img = document.createElement('img');
+          img.src = org.image;
+          img.alt = org.title;
+          img.onerror = () => {
+            renderFallbackArtwork(popupImgContainer, org);
+          };
+          popupImgContainer.appendChild(img);
+        } else {
+          renderFallbackArtwork(popupImgContainer, org);
+        }
+
+        popupCategoryBadge.textContent = org.categoryLabel;
+        popupCategoryBadge.style.backgroundColor = org.color;
+        popupLocationBadge.textContent = org.location;
+
+        popupTitle.textContent = org.title;
+        popupDesc.textContent = org.desc;
+        popupDonateLink.href = org.link;
+      }
+
+      function renderFallbackArtwork(container, org) {
+        const categoryEmojis = {
+          prochoice: '✊',
+          dv: '🛡️',
+          homeless: '🏠',
+          youth: '🎓',
+          humanitarian: '🌍',
+          political: '🗳️',
+          ecological: '🌲'
+        };
+        const emoji = categoryEmojis[org.category] || '❤️';
+
+        container.innerHTML = `
+          <div class="popup-org-fallback-art" style="background-color: ${org.color};">
+            <div class="fallback-org-symbol">${emoji}</div>
+            <div class="fallback-org-title">${org.location}</div>
+          </div>
+        `;
+      }
+
+      // ================= SPIN WHEEL LOGIC =================
+      function spinWheel() {
+        if (isSpinning) return;
+        isSpinning = true;
+        spinBtn.disabled = true;
+        respinBtn.disabled = true;
+        spinBtn.textContent = 'SPINNING THE CAUSES...';
+
+        const targetIndex = Math.floor(Math.random() * numSegments);
+
+        // Pointer is at TOP of wheel (3 * Math.PI / 2)
+        const pointerAngle = 3 * Math.PI / 2;
+        const targetSegmentMiddle = (targetIndex * arc) + (arc / 2);
+
+        const extraRotations = 6 + Math.floor(Math.random() * 4);
+        let targetCurrentAngle = pointerAngle - targetSegmentMiddle;
+        while (targetCurrentAngle < currentAngle) {
+          targetCurrentAngle += 2 * Math.PI;
+        }
+        const finalAngle = targetCurrentAngle + (extraRotations * 2 * Math.PI);
+
+        const startTime = performance.now();
+        const duration = 4000;
+        const initialAngle = currentAngle;
+
+        function easeOutCubic(t) {
+          return 1 - Math.pow(1 - t, 3);
+        }
+
+        function animate(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const easeProgress = easeOutCubic(progress);
+
+          currentAngle = initialAngle + (finalAngle - initialAngle) * easeProgress;
+          drawWheel();
+
+          if (progress < 1) {
+            requestAnimationFrame(animate);
+          } else {
+            isSpinning = false;
+            spinBtn.disabled = false;
+            respinBtn.disabled = false;
+            spinBtn.textContent = '🟢 SPIN AGAIN';
+            renderOrgDetails(ALL_ORGS[targetIndex], true);
+          }
+        }
+
+        requestAnimationFrame(animate);
+      }
+
+      spinBtn.addEventListener('click', spinWheel);
+      respinBtn.addEventListener('click', spinWheel);
+
+      // ================= DIRECTORY TAB POPULATION =================
+      function renderDirectory(items) {
+        rosterGrid.innerHTML = '';
+        rosterCounter.textContent = `Showing ${items.length} Organization${items.length === 1 ? '' : 's'}`;
+
+        items.forEach(org => {
+          const card = document.createElement('div');
+          card.className = 'roster-card';
+
+          const cardImg = document.createElement('div');
+          cardImg.className = 'roster-card-image';
+          if (org.image && org.image.trim() !== '') {
+            const img = document.createElement('img');
+            img.src = org.image;
+            img.alt = org.title;
+            img.onerror = () => {
+              cardImg.innerHTML = `<span style="font-weight:900; font-size:1.5rem; color:#000;">${org.location}</span>`;
+            };
+            cardImg.appendChild(img);
+          } else {
+            cardImg.innerHTML = `<span style="font-weight:900; font-size:1.5rem; color:#000;">${org.location}</span>`;
+          }
+
+          card.innerHTML = `
+            <div>
+              <div class="card-top" style="margin-bottom:0.75rem;">
+                <span class="card-category" style="background:${org.color};">${org.categoryLabel}</span>
+                <span class="location-tag">${org.location}</span>
+              </div>
+              <h3 class="roster-card-title">${org.title}</h3>
+              <p class="roster-card-desc">${org.desc}</p>
+            </div>
+            <a href="${org.link}" target="_blank" rel="noopener noreferrer" class="roster-donate-btn">
+              DONATE DIRECTLY &rarr;
+            </a>
+          `;
+
+          const cardInnerDiv = card.querySelector('div');
+          cardInnerDiv.insertBefore(cardImg, cardInnerDiv.querySelector('.roster-card-title'));
+
+          rosterGrid.appendChild(card);
+        });
+      }
+
+      rosterSearch.addEventListener('input', (e) => {
+        const q = e.target.value.toLowerCase().trim();
+        const filtered = ALL_ORGS.filter(org => {
+          return org.title.toLowerCase().includes(q) ||
+                 org.desc.toLowerCase().includes(q) ||
+                 org.location.toLowerCase().includes(q) ||
+                 org.categoryLabel.toLowerCase().includes(q);
+        });
+        renderDirectory(filtered);
+      });
+
+      // Initialize
+      drawWheel();
+      renderOrgDetails(ALL_ORGS[0]);
+      renderDirectory(ALL_ORGS);
+    });
+  </script>
+
 </body>
 </html>

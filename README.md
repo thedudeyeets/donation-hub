@@ -1,7 +1,7 @@
 # helpfor.us — Curated Donation Hub
 
 > **A curated, zero-friction resource hub for urgent mutual aid, emergency relief, bodily autonomy, domestic violence survivor support, homeless shelter, ecological defense, and youth pathways.**  
-> Built with raw, hand-crafted neobrutalist web design. No standard CSS frameworks, no corporate charity fluff—just verified causes with direct action donation links and an interactive **"Meet The Orgs"** random discovery wheel.
+> Built with raw, hand-crafted neobrutalist web design. No standard CSS frameworks, no corporate charity fluff—just verified causes with direct action donation links and an interactive **"Meet The Orgs"** fullscreen discovery experience.
 
 * **Live Site / Local File:** [`index.html`](index.html)
 * **Maintained By:** [Isaac McGinnis](https://isaacmcginnis.com)
@@ -9,16 +9,17 @@
 
 ---
 
-## ⚡ Interactive Spin Wheel: "Meet The Orgs"
+## ⚡ Fullscreen Interactive Discovery: "Meet The Orgs"
 
-* **Sticky Action Button:** Fixed to the bottom-right corner of the screen with bold 4px solid black borders, 6px unblurred drop-shadow, stark yellow accent, and mechanical zero-easing press physics (`translate(6px, 6px)`).
-* **Neobrutalist Roulette Wheel:** 
-  * Clicking **"Meet The Orgs"** opens a centered interactive wheel featuring all 29 verified organizations color-coded in neon segments.
-  * Clicking **"SPIN THE WHEEL"** triggers a dynamic, cubic-eased physical wheel spin.
-* **Automatic Landed Card Pop-Up:**
-  * As soon as the wheel finishes spinning and lands on an organization, a focused **Neobrutalist Pop-Up Card** immediately launches on top.
-  * The card displays the organization's verified photograph / media artwork, category badge, geographic tag, full mission description, and a direct **"DONATE DIRECTLY &rarr;"** link.
-  * Includes a **"Spin Again"** button to jump straight into the next spin.
+* **Sticky Action Trigger:** Fixed at the bottom-right of the screen with a 4px black border, 6px unblurred drop-shadow, stark yellow accent, and snappy physical mechanical press physics (`translate(6px, 6px)`).
+* **Fullscreen Centered Spin Wheel:** 
+  * Clicking **"Meet The Orgs"** launches a fullscreen centered neobrutalist card overlay (not a side modal) with all 29 verified organizations mapped into color-coded neon segments.
+  * Clicking **"SPIN THE WHEEL"** triggers a physical roulette spin with cubic-eased deceleration.
+* **Full-Screen Organization Takeover Card:**
+  * When the wheel lands on an organization, the wheel disappears and the selected cause **takes over the entire screen** with a bold high-contrast presentation.
+  * Shows verified media/photography (with custom geometric fallbacks), category tags, geographic focus, high-impact typography, and complete mission details.
+  * Includes a prominent **"DONATE DIRECTLY &rarr;"** button linking straight to the vetted donation page.
+  * Features a **"Spin Again"** back button (both in the top navigation bar and beside the donate button) that returns straight to the centered wheel and spins again seamlessly.
 
 ---
 
@@ -133,10 +134,10 @@ Every single organization listed here has been independently verified with activ
 
 * **Design Aesthetic:** Raw Neobrutalism (Space Grotesk typography, off-white background `#f4f4f0`, thick `4px solid black` borders, and unblurred `8px 8px 0 #000` drop-shadows).
 * **Interactivity:** Physical mechanical button press simulation (`translate(4px, 4px)` on hover and `translate(8px, 8px)` on active click with snappy zero-easing).
-* **Interactive Random Wheel Discovery:**
-  * Clean, distraction-free wheel dialog opened from the sticky **Meet The Orgs** trigger.
-  * Physics-based wheel rotation with organic easing.
-  * Automatic popup of the landed organization card with photo/fallback art, full mission info, and direct donation link.
+* **Fullscreen Experience:**
+  * Centered fullscreen roulette wheel dialog.
+  * Instant full-screen takeover org card when landed.
+  * Snappy "Spin Again" back buttons that immediately bring the user back to spin again.
 * **Zero Dependencies:** Pure HTML5, CSS3, and vanilla JS contained in a single responsive file.
 
 ---

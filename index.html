@@ -410,14 +410,14 @@
       border: var(--border-thick);
       box-shadow: 6px 6px 0 var(--black);
       font-family: inherit;
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 1.1rem 1.6rem;
+      padding: 1.15rem 1.75rem;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.75rem;
       letter-spacing: 0.03em;
       transition: none;
     }
@@ -434,53 +434,55 @@
     }
 
     .sticky-meet-btn .sparkle {
-      font-size: 1.4rem;
+      font-size: 1.5rem;
       display: inline-block;
-      animation: spin-pulse 2s infinite linear;
+      animation: spin-pulse 2.2s infinite linear;
     }
 
     @keyframes spin-pulse {
       0% { transform: rotate(0deg) scale(1); }
-      50% { transform: rotate(180deg) scale(1.2); }
+      50% { transform: rotate(180deg) scale(1.25); }
       100% { transform: rotate(360deg) scale(1); }
     }
 
-    /* MODAL BACKDROP */
-    .modal-overlay {
+    /* FULLSCREEN WHEEL OVERLAY */
+    .wheel-fullscreen-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 2000;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.92);
+      z-index: 3000;
       display: none;
       align-items: center;
       justify-content: center;
       padding: 1.5rem;
-      backdrop-filter: blur(3px);
+      backdrop-filter: blur(5px);
     }
 
-    .modal-overlay.open {
+    .wheel-fullscreen-overlay.open {
       display: flex;
     }
 
-    /* MODAL WINDOW FOR WHEEL */
-    .wheel-modal-window {
+    /* CENTERED WHEEL CONTAINER (NEOBRUTALIST CARD) */
+    .wheel-fullscreen-card {
       background: var(--bg);
       border: var(--border-thick);
-      box-shadow: 12px 12px 0 var(--black);
+      box-shadow: 14px 14px 0 var(--black);
       width: 100%;
-      max-width: 620px;
+      max-width: 640px;
       max-height: 94vh;
       display: flex;
       flex-direction: column;
       position: relative;
       overflow: hidden;
+      margin: auto;
     }
 
-    /* MODAL HEADER */
-    .modal-header {
+    .modal-header-fullscreen {
       background: var(--black);
       color: #fff;
-      padding: 1.25rem 1.5rem;
+      padding: 1.25rem 1.75rem;
       border-bottom: var(--border-thick);
       display: flex;
       justify-content: space-between;
@@ -488,8 +490,8 @@
       flex-shrink: 0;
     }
 
-    .modal-header h2 {
-      font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+    .modal-header-fullscreen h2 {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
       font-weight: 900;
       text-transform: uppercase;
       letter-spacing: -0.02em;
@@ -500,11 +502,11 @@
       color: var(--black);
       border: 3px solid var(--black);
       font-family: inherit;
-      font-size: 1.5rem;
+      font-size: 1.6rem;
       font-weight: 900;
       line-height: 1;
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -524,8 +526,7 @@
       box-shadow: 0 0 0 #fff;
     }
 
-    /* WHEEL MODAL BODY */
-    .wheel-modal-body {
+    .wheel-centered-body {
       padding: 2rem 1.5rem;
       overflow-y: auto;
       display: flex;
@@ -536,20 +537,20 @@
         -45deg,
         #f4f4f0,
         #f4f4f0 20px,
-        #eee 20px,
-        #eee 40px
+        #e9e9e4 20px,
+        #e9e9e4 40px
       );
     }
 
     .wheel-canvas-container {
       position: relative;
-      width: 360px;
-      height: 360px;
+      width: 380px;
+      height: 380px;
       max-width: 100%;
       margin: 1.25rem auto 1.5rem;
       background: #fff;
       border-radius: 50%;
-      box-shadow: var(--shadow-hard);
+      box-shadow: 8px 8px 0 var(--black);
       border: var(--border-thick);
     }
 
@@ -562,26 +563,26 @@
 
     .wheel-pointer {
       position: absolute;
-      top: -16px;
+      top: -18px;
       left: 50%;
       transform: translateX(-50%);
       width: 0;
       height: 0;
-      border-left: 20px solid transparent;
-      border-right: 20px solid transparent;
-      border-top: 34px solid var(--black);
-      z-index: 20;
+      border-left: 22px solid transparent;
+      border-right: 22px solid transparent;
+      border-top: 36px solid var(--black);
+      z-index: 25;
       filter: drop-shadow(0 4px 0 var(--pink));
     }
 
     .spin-trigger-btn {
       width: 100%;
-      max-width: 420px;
+      max-width: 440px;
       font-family: inherit;
-      font-size: 1.35rem;
+      font-size: 1.4rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 1.15rem 1.5rem;
+      padding: 1.2rem 1.5rem;
       background: var(--lime);
       color: var(--black);
       border: var(--border-thick);
@@ -603,7 +604,7 @@
     }
 
     .spin-trigger-btn:disabled {
-      background: #ccc;
+      background: #bbb;
       cursor: not-allowed;
       box-shadow: 3px 3px 0 var(--black);
       transform: translate(3px, 3px);
@@ -621,74 +622,112 @@
       display: inline-block;
     }
 
-    /* ================= LANDED RESULT POPUP CARD OVERLAY ================= */
-    .card-popup-overlay {
+    /* ================= FULLSCREEN TAKEOVER ORG CARD ================= */
+    .org-takeover-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(0, 0, 0, 0.85);
-      z-index: 3000;
+      width: 100vw;
+      height: 100vh;
+      background: var(--bg);
+      z-index: 4000;
       display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-      backdrop-filter: blur(4px);
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 2rem;
     }
 
-    .card-popup-overlay.open {
+    .org-takeover-overlay.open {
       display: flex;
     }
 
-    .card-popup-window {
-      background: var(--bg);
-      border: var(--border-thick);
-      box-shadow: 14px 14px 0 var(--black);
+    .org-takeover-container {
       width: 100%;
-      max-width: 600px;
-      max-height: 92vh;
+      max-width: 1050px;
+      margin: auto;
+      background: #ffffff;
+      border: var(--border-thick);
+      box-shadow: 16px 16px 0 var(--black);
       display: flex;
       flex-direction: column;
-      position: relative;
       overflow: hidden;
-      animation: popIn 0.15s cubic-bezier(0, 0, 0.2, 1);
+      animation: takeoverIn 0.18s cubic-bezier(0, 0, 0.2, 1);
     }
 
-    @keyframes popIn {
-      0% { transform: scale(0.9) translateY(20px); opacity: 0; }
+    @keyframes takeoverIn {
+      0% { transform: scale(0.94) translateY(24px); opacity: 0; }
       100% { transform: scale(1) translateY(0); opacity: 1; }
     }
 
-    .card-popup-header {
-      background: var(--purple);
-      color: #fff;
-      padding: 1.1rem 1.5rem;
+    .takeover-top-bar {
+      background: var(--yellow);
       border-bottom: var(--border-thick);
+      padding: 1.25rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
     }
 
-    .card-popup-header h3 {
-      font-size: 1.35rem;
+    .takeover-win-tag {
+      background: var(--black);
+      color: #fff;
+      font-size: 1.05rem;
       font-weight: 900;
       text-transform: uppercase;
-      letter-spacing: -0.01em;
-      color: #ffffff;
+      padding: 0.4rem 0.9rem;
+      letter-spacing: 0.08em;
     }
 
-    .card-popup-body {
-      padding: 1.75rem;
-      overflow-y: auto;
-      background: #ffffff;
+    .takeover-top-actions {
       display: flex;
-      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
     }
 
-    .popup-org-image-wrapper {
+    .spin-again-back-btn {
+      font-family: inherit;
+      font-size: 1.15rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 0.75rem 1.5rem;
+      background: var(--cyan);
+      color: var(--black);
+      border: 3px solid var(--black);
+      box-shadow: 4px 4px 0 var(--black);
+      cursor: pointer;
+      transition: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .spin-again-back-btn:hover {
+      background: var(--pink);
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0 var(--black);
+    }
+
+    .spin-again-back-btn:active {
+      transform: translate(4px, 4px);
+      box-shadow: 0 0 0 var(--black);
+    }
+
+    /* TAKEOVER CONTENT LAYOUT */
+    .takeover-content-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 2.5rem;
+      padding: 2.5rem 2rem;
+      align-items: center;
+    }
+
+    .takeover-media-box {
       width: 100%;
-      height: 220px;
+      height: 380px;
       border: var(--border-thick);
+      box-shadow: 8px 8px 0 var(--black);
       background: #f0f0f0;
-      margin-bottom: 1.25rem;
       overflow: hidden;
       position: relative;
       display: flex;
@@ -696,98 +735,103 @@
       justify-content: center;
     }
 
-    .popup-org-image-wrapper img {
+    .takeover-media-box img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .popup-org-fallback-art {
+    .takeover-fallback-art {
       width: 100%;
       height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
+      padding: 2rem;
       text-align: center;
     }
 
-    .fallback-org-symbol {
-      font-size: 3.5rem;
-      margin-bottom: 0.3rem;
+    .takeover-symbol {
+      font-size: 5rem;
+      margin-bottom: 0.6rem;
     }
 
-    .fallback-org-title {
-      font-size: 1.1rem;
+    .takeover-symbol-tag {
+      font-size: 1.25rem;
       font-weight: 900;
       background: var(--black);
       color: #fff;
-      padding: 0.25rem 0.6rem;
+      padding: 0.35rem 0.8rem;
       text-transform: uppercase;
     }
 
-    .popup-card-meta {
+    .takeover-details-box {
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 0.5rem;
-      margin-bottom: 0.85rem;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .takeover-meta-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.25rem;
       flex-wrap: wrap;
     }
 
-    .popup-category-badge {
-      font-size: 0.8rem;
+    .takeover-category-pill {
+      font-size: 0.9rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 0.25rem 0.65rem;
+      padding: 0.35rem 0.8rem;
       border: 3px solid var(--black);
       letter-spacing: 0.05em;
     }
 
-    .popup-location-badge {
-      font-size: 0.8rem;
+    .takeover-location-pill {
+      font-size: 0.9rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 0.25rem 0.65rem;
+      padding: 0.35rem 0.8rem;
       background: var(--black);
       color: #fff;
     }
 
-    .popup-card-title {
-      font-size: 1.85rem;
+    .takeover-title {
+      font-size: clamp(2rem, 4vw, 3rem);
       font-weight: 900;
       text-transform: uppercase;
-      line-height: 1.15;
-      margin-bottom: 0.85rem;
+      line-height: 1.05;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.03em;
     }
 
-    .popup-card-desc {
-      font-size: 1.05rem;
+    .takeover-desc {
+      font-size: 1.15rem;
       font-weight: 700;
-      line-height: 1.45;
+      line-height: 1.5;
       color: #1a1a1a;
-      margin-bottom: 1.85rem;
-      flex-grow: 1;
+      margin-bottom: 2.25rem;
     }
 
-    .popup-action-row {
+    .takeover-cta-row {
       display: flex;
-      gap: 1rem;
+      gap: 1.25rem;
       flex-wrap: wrap;
     }
 
-    .popup-donate-btn {
+    .takeover-donate-btn {
       flex: 1;
-      min-width: 190px;
+      min-width: 220px;
       text-align: center;
       text-decoration: none;
       font-family: inherit;
-      font-size: 1.25rem;
+      font-size: 1.35rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 1.05rem 1rem;
+      padding: 1.2rem 1.5rem;
       background: var(--purple);
       color: #fff;
       border: var(--border-thick);
@@ -797,25 +841,25 @@
       letter-spacing: 0.04em;
     }
 
-    .popup-donate-btn:hover {
+    .takeover-donate-btn:hover {
       background: var(--black);
       color: #fff;
       transform: translate(4px, 4px);
       box-shadow: 4px 4px 0 var(--black);
     }
 
-    .popup-donate-btn:active {
+    .takeover-donate-btn:active {
       transform: translate(8px, 8px);
       box-shadow: var(--shadow-pressed);
     }
 
-    .spin-again-btn {
+    .takeover-spin-again-bottom {
       font-family: inherit;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       font-weight: 900;
       text-transform: uppercase;
-      padding: 1.05rem 1.4rem;
-      background: var(--cyan);
+      padding: 1.2rem 1.6rem;
+      background: var(--lime);
       color: var(--black);
       border: var(--border-thick);
       box-shadow: var(--shadow-hard);
@@ -823,36 +867,41 @@
       transition: none;
     }
 
-    .spin-again-btn:hover {
-      background: var(--pink);
+    .takeover-spin-again-bottom:hover {
+      background: var(--yellow);
       transform: translate(3px, 3px);
       box-shadow: 5px 5px 0 var(--black);
     }
 
-    .spin-again-btn:active {
+    .takeover-spin-again-bottom:active {
       transform: translate(8px, 8px);
       box-shadow: var(--shadow-pressed);
     }
 
-    @media (max-width: 650px) {
-      .wheel-modal-window, .card-popup-window {
-        max-height: 96vh;
+    @media (max-width: 850px) {
+      .takeover-content-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        padding: 1.5rem 1.25rem;
       }
-      .wheel-modal-body, .card-popup-body {
-        padding: 1.25rem 1rem;
+      .takeover-media-box {
+        height: 250px;
       }
       .wheel-canvas-container {
-        width: 290px;
-        height: 290px;
+        width: 300px;
+        height: 300px;
+      }
+      .org-takeover-overlay {
+        padding: 1rem;
+      }
+      .takeover-top-bar {
+        padding: 1rem 1.25rem;
       }
       .sticky-meet-btn {
         bottom: 1.25rem;
         right: 1.25rem;
-        padding: 0.9rem 1.25rem;
-        font-size: 1rem;
-      }
-      .popup-card-title {
-        font-size: 1.5rem;
+        padding: 0.95rem 1.35rem;
+        font-size: 1.05rem;
       }
     }
   </style>
@@ -1405,23 +1454,23 @@
   </div>
 
 <!-- STICKY BUTTON: MEET THE ORGS -->
-  <button id="meet-orgs-trigger" class="sticky-meet-btn" aria-label="Open Meet The Organizations Hub">
+  <button id="meet-orgs-trigger" class="sticky-meet-btn" aria-label="Open Meet The Organizations Wheel">
     <span class="sparkle">&#9733;</span>
     <span>Meet The Orgs</span>
-    <span style="font-size:1.3rem;">&rarr;</span>
+    <span style="font-size:1.4rem;">&rarr;</span>
   </button>
 
-  <!-- NEOBRUTALIST MODAL: MEET THE ORGS WHEEL -->
-  <div id="meet-orgs-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-    <div class="wheel-modal-window">
+  <!-- FULLSCREEN CENTERED WHEEL POPUP -->
+  <div id="meet-orgs-modal" class="wheel-fullscreen-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+    <div class="wheel-fullscreen-card">
       <!-- HEADER -->
-      <div class="modal-header">
+      <div class="modal-header-fullscreen">
         <h2 id="modal-headline">&#9889; MEET THE ORGS &bull; SPIN THE WHEEL</h2>
         <button id="modal-close" class="modal-close-btn" aria-label="Close dialog">&times;</button>
       </div>
 
-      <!-- BODY -->
-      <div class="wheel-modal-body">
+      <!-- CENTERED BODY -->
+      <div class="wheel-centered-body">
         <span class="badge-top" style="margin-bottom:0.25rem; background:var(--black); color:#fff;">Random Interactive Discovery</span>
         
         <div class="wheel-canvas-container">
@@ -1430,51 +1479,59 @@
         </div>
 
         <button id="spin-button" class="spin-trigger-btn">&#127922; SPIN THE WHEEL</button>
-        <div class="wheel-subtext">Spin to randomly discover &amp; pop up a vetted cause!</div>
+        <div class="wheel-subtext">Spin to randomly discover &amp; take over the screen!</div>
       </div>
     </div>
   </div>
 
-  <!-- POPUP CARD MODAL (POPS UP WHEN WHEEL LANDS ON AN ORG) -->
-  <div id="card-popup-modal" class="card-popup-overlay" role="dialog" aria-modal="true" aria-labelledby="popup-title">
-    <div class="card-popup-window">
-      <!-- POPUP HEADER -->
-      <div class="card-popup-header">
-        <h3 id="popup-win-banner">&#127881; YOU LANDED ON A VETTED CAUSE!</h3>
-        <button id="popup-close-btn" class="modal-close-btn" aria-label="Close card dialog">&times;</button>
+  <!-- FULLSCREEN TAKEOVER ORG CARD (POPS UP WHEN WHEEL LANDS ON AN ORG) -->
+  <div id="org-takeover-modal" class="org-takeover-overlay" role="dialog" aria-modal="true" aria-labelledby="takeover-title">
+    <div class="org-takeover-container">
+      <!-- TAKEOVER TOP BAR -->
+      <div class="takeover-top-bar">
+        <span class="takeover-win-tag" id="takeover-win-banner">&#127881; YOU LANDED ON A VETTED CAUSE!</span>
+        <div class="takeover-top-actions">
+          <button id="takeover-spin-again-top" class="spin-again-back-btn" aria-label="Spin Again">
+            <span>&larr;</span>
+            <span>Spin Again</span>
+          </button>
+          <button id="takeover-close-btn" class="modal-close-btn" aria-label="Close takeover and return to hub">&times;</button>
+        </div>
       </div>
 
-      <!-- POPUP BODY -->
-      <div class="card-popup-body">
-        <!-- Organization Photo / Artwork -->
-        <div class="popup-org-image-wrapper" id="popup-image-container">
-          <!-- Dynamically inserted image or graphic -->
+      <!-- TAKEOVER MAIN CONTENT GRID -->
+      <div class="takeover-content-grid">
+        <!-- Media / Artwork Box -->
+        <div class="takeover-media-box" id="takeover-image-container">
+          <!-- Dynamically inserted image or fallback graphic -->
         </div>
 
-        <!-- Category & Location Badges -->
-        <div class="popup-card-meta">
-          <span class="popup-category-badge" id="popup-category-badge">Category</span>
-          <span class="popup-location-badge" id="popup-location-badge">Location</span>
-        </div>
+        <!-- Details Box -->
+        <div class="takeover-details-box">
+          <div class="takeover-meta-row">
+            <span class="takeover-category-pill" id="takeover-category-pill">Category</span>
+            <span class="takeover-location-pill" id="takeover-location-pill">Location</span>
+          </div>
 
-        <!-- Title & Description -->
-        <h3 class="popup-card-title" id="popup-title">Organization Title</h3>
-        <p class="popup-card-desc" id="popup-desc">
-          Organization description and details.
-        </p>
+          <h1 class="takeover-title" id="takeover-title">Organization Title</h1>
+          <p class="takeover-desc" id="takeover-desc">
+            Organization mission and fund details.
+          </p>
 
-        <!-- Action Row -->
-        <div class="popup-action-row">
-          <a href="#" target="_blank" rel="noopener noreferrer" class="popup-donate-btn" id="popup-donate-link">
-            DONATE DIRECTLY &rarr;
-          </a>
-          <button class="spin-again-btn" id="respin-btn">&#128260; Spin Again</button>
+          <div class="takeover-cta-row">
+            <a href="#" target="_blank" rel="noopener noreferrer" class="takeover-donate-btn" id="takeover-donate-link">
+              DONATE DIRECTLY &rarr;
+            </a>
+            <button class="takeover-spin-again-bottom" id="takeover-spin-again-bottom">
+              &#128260; Spin Again
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-    <!-- JAVASCRIPT FILTERING FUNCTIONALITY -->
+  <!-- JAVASCRIPT FILTERING FUNCTIONALITY -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const filterButtons = document.querySelectorAll('.filter-btn');
@@ -1515,7 +1572,7 @@
     });
   </script>
 
-<!-- ORGS DATASET & INTERACTIVE SPIN WHEEL POPUP SCRIPT -->
+<!-- ORGS DATASET & FULLSCREEN INTERACTIVE SPIN WHEEL TAKEOVER SCRIPT -->
   <script>
     const ALL_ORGS = [
   {
@@ -1848,20 +1905,22 @@
       const ctx = canvas.getContext('2d');
       const spinBtn = document.getElementById('spin-button');
 
-      // Landed Card Popup Modal Elements
-      const cardPopupModal = document.getElementById('card-popup-modal');
-      const popupCloseBtn = document.getElementById('popup-close-btn');
-      const respinBtn = document.getElementById('respin-btn');
-      const popupImgContainer = document.getElementById('popup-image-container');
-      const popupCategoryBadge = document.getElementById('popup-category-badge');
-      const popupLocationBadge = document.getElementById('popup-location-badge');
-      const popupTitle = document.getElementById('popup-title');
-      const popupDesc = document.getElementById('popup-desc');
-      const popupDonateLink = document.getElementById('popup-donate-link');
-      const popupWinBanner = document.getElementById('popup-win-banner');
+      // Fullscreen Takeover Org Card Elements
+      const takeoverModal = document.getElementById('org-takeover-modal');
+      const takeoverCloseBtn = document.getElementById('takeover-close-btn');
+      const spinAgainTop = document.getElementById('takeover-spin-again-top');
+      const spinAgainBottom = document.getElementById('takeover-spin-again-bottom');
+      const takeoverImgContainer = document.getElementById('takeover-image-container');
+      const takeoverCategoryPill = document.getElementById('takeover-category-pill');
+      const takeoverLocationPill = document.getElementById('takeover-location-pill');
+      const takeoverTitle = document.getElementById('takeover-title');
+      const takeoverDesc = document.getElementById('takeover-desc');
+      const takeoverDonateLink = document.getElementById('takeover-donate-link');
+      const takeoverWinBanner = document.getElementById('takeover-win-banner');
 
       // Wheel Modal Controls
       function openWheelModal() {
+        takeoverModal.classList.remove('open');
         wheelModal.classList.add('open');
         document.body.style.overflow = 'hidden';
         drawWheel();
@@ -1869,9 +1928,7 @@
 
       function closeWheelModal() {
         wheelModal.classList.remove('open');
-        if (!cardPopupModal.classList.contains('open')) {
-          document.body.style.overflow = '';
-        }
+        document.body.style.overflow = '';
       }
 
       meetBtn.addEventListener('click', openWheelModal);
@@ -1880,61 +1937,69 @@
         if (e.target === wheelModal) closeWheelModal();
       });
 
-      // Card Popup Modal Controls
-      function openCardPopup(org) {
-        // Set content
-        popupWinBanner.textContent = '🎉 YOU LANDED ON: ' + org.title.toUpperCase();
+      // Takeover Org Card Controls
+      function openTakeover(org) {
+        wheelModal.classList.remove('open');
 
-        popupImgContainer.innerHTML = '';
+        takeoverWinBanner.textContent = '🎉 YOU LANDED ON: ' + org.title.toUpperCase();
+
+        takeoverImgContainer.innerHTML = '';
         if (org.image && org.image.trim() !== '') {
           const img = document.createElement('img');
           img.src = org.image;
           img.alt = org.title;
           img.onerror = () => {
-            renderFallbackArtwork(popupImgContainer, org);
+            renderTakeoverFallback(takeoverImgContainer, org);
           };
-          popupImgContainer.appendChild(img);
+          takeoverImgContainer.appendChild(img);
         } else {
-          renderFallbackArtwork(popupImgContainer, org);
+          renderTakeoverFallback(takeoverImgContainer, org);
         }
 
-        popupCategoryBadge.textContent = org.categoryLabel;
-        popupCategoryBadge.style.backgroundColor = org.color;
-        popupLocationBadge.textContent = org.location;
+        takeoverCategoryPill.textContent = org.categoryLabel;
+        takeoverCategoryPill.style.backgroundColor = org.color;
+        takeoverLocationPill.textContent = org.location;
 
-        popupTitle.textContent = org.title;
-        popupDesc.textContent = org.desc;
-        popupDonateLink.href = org.link;
+        takeoverTitle.textContent = org.title;
+        takeoverDesc.textContent = org.desc;
+        takeoverDonateLink.href = org.link;
 
-        // Open popup
-        cardPopupModal.classList.add('open');
+        takeoverModal.classList.add('open');
         document.body.style.overflow = 'hidden';
       }
 
-      function closeCardPopup() {
-        cardPopupModal.classList.remove('open');
-        if (!wheelModal.classList.contains('open')) {
-          document.body.style.overflow = '';
-        }
+      function closeTakeover() {
+        takeoverModal.classList.remove('open');
+        document.body.style.overflow = '';
       }
 
-      popupCloseBtn.addEventListener('click', closeCardPopup);
-      cardPopupModal.addEventListener('click', (e) => {
-        if (e.target === cardPopupModal) closeCardPopup();
-      });
+      takeoverCloseBtn.addEventListener('click', closeTakeover);
 
-      // Escape key closes open modal (card popup first, then wheel)
+      // Spin Again Actions: closes the takeover card, brings back the centered wheel and automatically spins!
+      function handleSpinAgain() {
+        takeoverModal.classList.remove('open');
+        wheelModal.classList.add('open');
+        drawWheel();
+        setTimeout(() => {
+          spinWheel();
+        }, 150);
+      }
+
+      spinAgainTop.addEventListener('click', handleSpinAgain);
+      spinAgainBottom.addEventListener('click', handleSpinAgain);
+
+      // Escape key closes whichever modal is open
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-          if (cardPopupModal.classList.contains('open')) {
-            closeCardPopup();
+          if (takeoverModal.classList.contains('open')) {
+            closeTakeover();
           } else if (wheelModal.classList.contains('open')) {
             closeWheelModal();
           }
         }
       });
 
-      function renderFallbackArtwork(container, org) {
+      function renderTakeoverFallback(container, org) {
         const categoryEmojis = {
           prochoice: '✊',
           dv: '🛡️',
@@ -1947,9 +2012,9 @@
         const emoji = categoryEmojis[org.category] || '❤️';
 
         container.innerHTML = `
-          <div class="popup-org-fallback-art" style="background-color: ${org.color};">
-            <div class="fallback-org-symbol">${emoji}</div>
-            <div class="fallback-org-title">${org.location}</div>
+          <div class="takeover-fallback-art" style="background-color: ${org.color};">
+            <div class="takeover-symbol">${emoji}</div>
+            <div class="takeover-symbol-tag">${org.location}</div>
           </div>
         `;
       }
@@ -2007,7 +2072,7 @@
 
         // Center hub
         ctx.beginPath();
-        ctx.arc(center, center, 38, 0, 2 * Math.PI);
+        ctx.arc(center, center, 40, 0, 2 * Math.PI);
         ctx.fillStyle = '#000000';
         ctx.fill();
         ctx.lineWidth = 4;
@@ -2015,7 +2080,7 @@
         ctx.stroke();
 
         ctx.beginPath();
-        ctx.arc(center, center, 14, 0, 2 * Math.PI);
+        ctx.arc(center, center, 15, 0, 2 * Math.PI);
         ctx.fillStyle = '#FFC900';
         ctx.fill();
       }
@@ -2062,8 +2127,7 @@
             isSpinning = false;
             spinBtn.disabled = false;
             spinBtn.textContent = '🎲 SPIN AGAIN';
-            // POP UP THE CARD IT LANDS ON!
-            openCardPopup(ALL_ORGS[targetIndex]);
+            openTakeover(ALL_ORGS[targetIndex]);
           }
         }
 
@@ -2071,12 +2135,6 @@
       }
 
       spinBtn.addEventListener('click', spinWheel);
-      
-      // Respin button from popup card: closes popup and starts spin
-      respinBtn.addEventListener('click', () => {
-        closeCardPopup();
-        spinWheel();
-      });
 
       // Initial wheel draw
       drawWheel();

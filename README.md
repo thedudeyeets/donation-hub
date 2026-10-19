@@ -1,7 +1,7 @@
 # helpfor.us — Curated Donation Hub
 
 > **A curated, zero-friction resource hub for urgent mutual aid, emergency relief, bodily autonomy, domestic violence survivor support, homeless shelter, ecological defense, and youth pathways.**  
-> Built with raw, hand-crafted neobrutalist web design. No standard CSS frameworks, no corporate charity fluff—just verified causes with direct action donation links and an interactive **"Meet The Orgs"** fullscreen discovery experience.
+> Built with raw, hand-crafted neobrutalist web design. No standard CSS frameworks, no corporate charity fluff—just verified causes with direct action donation links and **"Meet The Orgs"**.
 
 * **Live Site / Local File:** [`index.html`](index.html)
 * **Maintained By:** [Isaac McGinnis](https://isaacmcginnis.com)
@@ -9,7 +9,7 @@
 
 ---
 
-## ⚡ Fullscreen Interactive Discovery: "Meet The Orgs"
+## ⚡ Meet The Orgs
 
 * **Sticky Action Trigger:** Fixed at the bottom-right of the screen with a 4px black border, 6px unblurred drop-shadow, stark yellow accent, and snappy physical mechanical press physics (`translate(6px, 6px)`).
 * **Fullscreen Centered Spin Wheel:** 
